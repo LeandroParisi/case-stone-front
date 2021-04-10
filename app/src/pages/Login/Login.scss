@@ -1,7 +1,14 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 
+$padding-top: 40vh;
+
 main {
+  &.loginPage {
+    padding-top: $padding-top;
+    height: calc(100vh - #{$padding-top});
+  }
+
   header {
     img {
       width: 100px;

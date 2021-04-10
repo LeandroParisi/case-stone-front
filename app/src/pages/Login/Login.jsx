@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useLoader from '../../hooks/useLoader';
-import logo from '../../assets/logo/logo.png';
+// import logo from '../../assets/logo/logo.png';
 import { validateEmail, validatePassword, isInputValid } from '../../utils/validations';
 
 import './Login.scss';
@@ -19,11 +19,11 @@ function Login() {
   }, [email, password]);
 
   return (
-    <main className="primaryPage">
+    <main className="primaryPage loginPage">
       { useLoader('main1') }
-      <header>
+      {/* <header>
         <img src={logo} alt="app logo" />
-      </header>
+      </header> */}
       <div className="inputsContainer">
         <Input
           type="text"

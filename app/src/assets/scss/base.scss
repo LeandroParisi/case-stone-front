@@ -3,7 +3,9 @@
 @import './animations.scss';
 
 .primaryPage {
-  // background-color: $redColor;
+  background-image: url('../images/BGs/Marvel_Background3.jpg');
+  background-position: center;
+  background-position-y: -380px;
   @include flexBox(column, space-around);
   height: 100vh;
   width: 100vw;
