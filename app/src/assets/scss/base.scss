@@ -14,6 +14,16 @@
 
 .primaryInput {
   @include flexBox(column);
+
+  .errorMessage {
+    background-color: $yellowColor;
+    color: $darkerWineColor;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: $font-xsmall;
+    margin-top: 5px;
+    font-family: ‘Myriad Pro’;
+  }
 }
 
 input {
@@ -48,6 +58,11 @@ input {
   -webkit-box-shadow: 0 0 0 30px $transparentGrayColor inset !important;
   box-shadow: 0 0 0 30px $transparentGrayColor inset !important;
   text-align: center;
+  }
+
+  &.invalid {
+    color: $redColor;
+    border-bottom: 1px solid $redColor;
   }
 }
 
