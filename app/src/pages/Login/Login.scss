@@ -1,7 +1,15 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
 main {
   header {
     img {
       width: 100px;
     }
+  }
+
+  .inputsContainer {
+    @include flexBox(column, space-between);
+    height: 20vh;
   }
 }
