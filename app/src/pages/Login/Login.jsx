@@ -13,9 +13,6 @@ function Login() {
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
-    // console.log(validateEmail.isValid(email));
-    console.log(validatePassword.isValid(password));
-
     setIsDisabled(!(validateEmail.isValid(email) && validatePassword.isValid(password)));
   }, [email, password]);
 
