@@ -13,7 +13,10 @@ function Login() {
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
-    console.log(setIsDisabled(validateEmail.isValid(email) && validatePassword.isValid(password)));
+    // console.log(validateEmail.isValid(email));
+    console.log(validatePassword.isValid(password));
+
+    setIsDisabled(!(validateEmail.isValid(email) && validatePassword.isValid(password)));
   }, [email, password]);
 
   return (
@@ -24,7 +27,7 @@ function Login() {
       </header>
       <div className="inputsContainer">
         <Input type="text" placeholder="Your email" value={email} onChange={setEmail} />
-        <Input type="password" placeholder="Your password" value={password} onChange={setPassword} />
+        <Input type="text" placeholder="Your password" value={password} onChange={setPassword} />
       </div>
       <Button title="Login" isDisabled={isDisabled} />
     </main>
