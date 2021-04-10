@@ -30,7 +30,7 @@ const Input = ({
       className={isValid !== null && !isValid && 'invalid'}
       onClick={() => resetValidity(true)}
     />
-    {isValid !== null && !isValid && <div className="errorMessage">{ errorMessage }</div>}
+    {isValid !== null && !isValid && <div className="errorMessage textContainer">{ errorMessage }</div>}
   </div>
 );
 

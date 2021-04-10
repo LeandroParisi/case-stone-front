@@ -22,9 +22,6 @@ function Login() {
     <>
       { useLoader('main1') }
       <main className="primaryPage loginPage">
-        {/* <header>
-          <img src={logo} alt="app logo" />
-        </header> */}
         <div className="inputsContainer">
           <Input
             type="text"
@@ -37,7 +34,7 @@ function Login() {
             resetValidity={setIsEmailValid}
           />
           <Input
-            type="text"
+            type="password"
             placeholder="Your password"
             value={password}
             onChange={setPassword}
