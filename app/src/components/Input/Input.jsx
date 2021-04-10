@@ -12,31 +12,27 @@ const Input = ({
   isValid,
   errorMessage,
   resetValidity,
-}) => {
-  console.log('input');
-  console.log(isValid);
-  return (
-    <div className="primaryInput">
-      {title && (
+}) => (
+  <div className="primaryInput">
+    {title && (
       <label htmlFor={title}>
         {title}
       </label>
-      )}
-      <input
-        id={title}
-        type={type}
-        onChange={onChange && ((e) => onChange(e.target.value))}
-        onBlur={onBlur && ((e) => onBlur(e.target.value))}
-        value={value}
-        readOnly={isReadOnly}
-        placeholder={placeholder}
-        className={isValid !== null && !isValid && 'invalid'}
-        onClick={() => resetValidity(true)}
-      />
-      {isValid !== null && !isValid && <div className="errorMessage">{ errorMessage }</div>}
-    </div>
-  );
-};
+    )}
+    <input
+      id={title}
+      type={type}
+      onChange={onChange && ((e) => onChange(e.target.value))}
+      onBlur={onBlur && ((e) => onBlur(e.target.value))}
+      value={value}
+      readOnly={isReadOnly}
+      placeholder={placeholder}
+      className={isValid !== null && !isValid && 'invalid'}
+      onClick={() => resetValidity(true)}
+    />
+    {isValid !== null && !isValid && <div className="errorMessage">{ errorMessage }</div>}
+  </div>
+);
 
 Input.propTypes = {
   title: PropTypes.string,
