@@ -19,33 +19,37 @@ function Login() {
   }, [email, password]);
 
   return (
-    <main className="primaryPage loginPage">
+    <>
       { useLoader('main1') }
-      {/* <header>
-        <img src={logo} alt="app logo" />
-      </header> */}
-      <div className="inputsContainer">
-        <Input
-          type="text"
-          placeholder="Your email"
-          value={email}
-          onChange={setEmail}
-          onBlur={isInputValid(setIsEmailValid, validateEmail.isValid)}
-          isValid={isEmailValid}
-          errorMessage={validateEmail.errorMessage}
-        />
-        <Input
-          type="text"
-          placeholder="Your password"
-          value={password}
-          onChange={setPassword}
-          onBlur={isInputValid(setIsPasswordValid, validatePassword.isValid)}
-          isValid={isPasswordValid}
-          errorMessage={validatePassword.errorMessage}
-        />
-      </div>
-      <Button title="Login" isDisabled={isDisabled} />
-    </main>
+      <main className="primaryPage loginPage">
+        {/* <header>
+          <img src={logo} alt="app logo" />
+        </header> */}
+        <div className="inputsContainer">
+          <Input
+            type="text"
+            placeholder="Your email"
+            value={email}
+            onChange={setEmail}
+            onBlur={isInputValid(setIsEmailValid, validateEmail.isValid)}
+            isValid={isEmailValid}
+            errorMessage={validateEmail.errorMessage}
+            resetValidity={setIsEmailValid}
+          />
+          <Input
+            type="text"
+            placeholder="Your password"
+            value={password}
+            onChange={setPassword}
+            onBlur={isInputValid(setIsPasswordValid, validatePassword.isValid)}
+            isValid={isPasswordValid}
+            errorMessage={validatePassword.errorMessage}
+            resetValidity={setIsPasswordValid}
+          />
+        </div>
+        <Button title="Login" isDisabled={isDisabled} />
+      </main>
+    </>
   );
 }
 

@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  title, type, onChange, value, placeholder, isReadOnly, onBlur, isValid, errorMessage,
+  title,
+  type,
+  onChange,
+  value,
+  placeholder,
+  isReadOnly,
+  onBlur,
+  isValid,
+  errorMessage,
+  resetValidity,
 }) => {
   console.log('input');
   console.log(isValid);
@@ -22,6 +31,7 @@ const Input = ({
         readOnly={isReadOnly}
         placeholder={placeholder}
         className={isValid !== null && !isValid && 'invalid'}
+        onClick={() => resetValidity(true)}
       />
       {isValid !== null && !isValid && <div className="errorMessage">{ errorMessage }</div>}
     </div>
@@ -38,6 +48,7 @@ Input.propTypes = {
   isReadOnly: PropTypes.bool,
   isValid: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
+  resetValidity: PropTypes.func.isRequired,
 };
 
 Input.defaultProps = {
