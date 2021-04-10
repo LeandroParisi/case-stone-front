@@ -1,13 +1,12 @@
-import React from 'react';
-import { useHistory } from 'react-router';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router';
+import { getToken } from '../store/localStorage/provider';
 
-function useRedirect(path) {
-  const history = useHistory();
+function useProtectRoute() {
+  const [token] = useState(getToken());
   return (
-    <>
-      { history.push(path) }
-    </>
+    !token && <Redirect to="/" />
   );
 }
 
-export default useRedirect;
+export default useProtectRoute;
