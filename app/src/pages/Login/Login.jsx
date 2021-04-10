@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-function Register() {
+function Login() {
   return (
     <main >
-      Register
+      Login
     </main>
   );
 }
 
-export default Register;
+export default Login;

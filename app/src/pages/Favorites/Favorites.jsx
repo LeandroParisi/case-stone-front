@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-function Register() {
+function Favorites() {
   return (
     <main >
-      Register
+      Favorites
     </main>
   );
 }
 
-export default Register;
+export default Favorites;
