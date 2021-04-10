@@ -21,9 +21,9 @@ const Input = ({
         value={value}
         readOnly={isReadOnly}
         placeholder={placeholder}
-        className={!isValid && 'invalid'}
+        className={isValid !== null && !isValid && 'invalid'}
       />
-      {!isValid && <div className="errorMessage">{ errorMessage }</div>}
+      {isValid !== null && !isValid && <div className="errorMessage">{ errorMessage }</div>}
     </div>
   );
 };
