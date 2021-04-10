@@ -104,20 +104,3 @@ button {
     }
   }
 }
-
-// button.golden {
-//   background-color: $gold;
-//   color: $darkBrown;
-//   transition: 0.5s;
-
-
-//   &:hover:enabled, &:active:enabled {
-//     background-color: $darkBrown;
-//     border-color: $gold;
-//     color: $gold;
-//   }
-
-//   &:disabled {
-//     @extend button:disabled
-//   }
-// }
