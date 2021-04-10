@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function Favorites() {
   return (
-    <main >
+    <main>
       Favorites
     </main>
   );

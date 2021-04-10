@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function Search() {
   return (
-    <main >
+    <main>
       Search
     </main>
   );
