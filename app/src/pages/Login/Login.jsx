@@ -1,11 +1,13 @@
 // import React, { useEffect, useState } from 'react';
 import React from 'react';
-import Loader from '../../assets/Loaders/Loader';
+// import Loader from '../../assets/Loaders/Loader';
+import useLoader from '../../hooks/useLoader';
 
 function Login() {
   return (
     <main>
-      <Loader image="main1" />
+      { useLoader('main1') }
+      teste
     </main>
   );
 }
