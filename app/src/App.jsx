@@ -4,6 +4,9 @@ import {
   Login, CharacterDetails, ComicsDetails, Favorites, Profile,
   Register, Search,
 } from './pages';
+import './assets/scss/reset.scss';
+
+require('typeface-bebas-neue');
 
 function App() {
   return (
