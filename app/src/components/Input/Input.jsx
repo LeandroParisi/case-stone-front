@@ -13,7 +13,7 @@ const Input = ({
     <input
       id={title}
       type={type}
-      onChange={onChange && ((e) => onChange(title, e.target.value))}
+      onChange={onChange && ((e) => onChange(e.target.value))}
       value={value}
       readOnly={isReadOnly}
       placeholder={placeholder}
