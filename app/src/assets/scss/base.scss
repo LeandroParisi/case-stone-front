@@ -1,0 +1,13 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+.primaryPage {
+  background-color: $redColor;
+  @include flexBox(column);
+  height: 100vh;
+  width: 100vw;
+}
+
+.secondaryPage {
+  background-color: $darkColor;
+}

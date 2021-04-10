@@ -5,6 +5,7 @@ import {
   Register, Search,
 } from './pages';
 import './assets/scss/reset.scss';
+import './assets/scss/base.scss';
 
 require('typeface-bebas-neue');
 
