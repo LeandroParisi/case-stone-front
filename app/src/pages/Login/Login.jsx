@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import useLoader from '../../hooks/useLoader';
-// import logo from '../../assets/logo/logo.png';
 import { validateEmail, validatePassword, isInputValid } from '../../utils/validations';
-
 import './Login.scss';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
+import postLogin from '../../services/postLogin';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -17,6 +16,12 @@ function Login() {
   useEffect(() => {
     setIsDisabled(!(validateEmail.isValid(email) && validatePassword.isValid(password)));
   }, [email, password]);
+
+  const handleButtonClick = () => {
+
+  };
+
+  postLogin({ email: 'leandro@gmail.com', password: 'leandro123' });
 
   return (
     <>
@@ -44,7 +49,7 @@ function Login() {
             resetValidity={setIsPasswordValid}
           />
         </div>
-        <Button title="Login" isDisabled={isDisabled} />
+        <Button title="Login" isDisabled={isDisabled} onClick={handleButtonClick} />
       </main>
     </>
   );

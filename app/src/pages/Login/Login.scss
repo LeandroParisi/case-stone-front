@@ -5,6 +5,10 @@ $padding-top: 40vh;
 
 main {
   &.loginPage {
+    background-image: url('../../assets/images/BGs/Marvel_Background3.jpg');
+    background-position: center;
+    background-position-y: -30vh;
+    background-size: 100vw 100vh;
     padding-top: $padding-top;
     height: calc(100vh - #{$padding-top});
   }
