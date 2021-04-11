@@ -17,6 +17,7 @@ function Search() {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
         type="sideSearch"
+        close={() => setIsSidebarOpen(false)}
       />
     </>
   );
