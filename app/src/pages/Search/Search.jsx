@@ -6,17 +6,23 @@ import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 function Search() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchCategory, setSearchCategory] = useState('characters');
 
+  const categoryPayload = { searchCategory, setSearchCategory };
   const inputPayload = { searchQuery, setSearchQuery };
 
   const makeRequest = () => {
-    console.log('request');
+    const requestPayload = { searchQuery, searchCategory };
   };
 
   return (
     <>
       { useProtectRoute() }
-      <Header openSearchSideBar={() => setIsSidebarOpen(true)} inputPayload={inputPayload} />
+      <Header
+        openSearchSideBar={() => setIsSidebarOpen(true)}
+        inputPayload={inputPayload}
+        categoryPayload={categoryPayload}
+      />
       <main>
         Search
       </main>

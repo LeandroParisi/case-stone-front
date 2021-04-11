@@ -7,14 +7,10 @@ import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 function Header({ ...props }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [searchCategory, setSearchCategory] = useState('characters');
-
-  const categoryPayload = { searchCategory, setSearchCategory };
-
   return (
     <header>
       <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <SearchBar categoryPayload={categoryPayload} others={props} />
+      <SearchBar payloads={props} />
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}

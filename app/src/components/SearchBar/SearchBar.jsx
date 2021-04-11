@@ -6,8 +6,11 @@ import Input from '../Input/Input';
 import './SearchBar.scss';
 
 function SearchBar({
-  categoryPayload: { searchCategory, setSearchCategory },
-  others: { openSearchSideBar, inputPayload: { searchQuery, setSearchQuery } },
+  payloads: {
+    openSearchSideBar,
+    inputPayload: { searchQuery, setSearchQuery },
+    categoryPayload: { searchCategory, setSearchCategory },
+  },
 }) {
   const placeHolderText = `Search by ${searchCategory}`;
   return (
@@ -38,16 +41,16 @@ function SearchBar({
 }
 
 SearchBar.propTypes = {
-  categoryPayload: PropTypes.shape({
-    searchCategory: PropTypes.oneOf(['characters', 'comics']).isRequired,
-    setSearchCategory: PropTypes.func.isRequired,
-  }).isRequired,
-  others: PropTypes.shape({
+  payloads: PropTypes.shape({
     inputPayload: PropTypes.shape({
       searchQuery: PropTypes.string.isRequired,
       setSearchQuery: PropTypes.func.isRequired,
     }).isRequired,
     openSearchSideBar: PropTypes.func.isRequired,
+    categoryPayload: PropTypes.shape({
+      searchCategory: PropTypes.oneOf(['characters', 'comics']).isRequired,
+      setSearchCategory: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
