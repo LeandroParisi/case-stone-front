@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CardDetails.scss';
 import splitName from '../SearchListCard/utils';
+import ComicsDisplay from '../ComicsDisplay/ComicsDisplay';
 
 function CardDetails({ asset, type }) {
   const {
@@ -17,6 +18,7 @@ function CardDetails({ asset, type }) {
   return (
     <section className={`${type}Details`} key={id}>
       <section className="cardHeader">
+        <ComicsDisplay list={comics} />
         <img src={xlarge} alt={`${name} card`} />
       </section>
       <div className="nameContainer">

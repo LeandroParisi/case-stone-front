@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   @include flexBox(column);
+  color: $whiteColor;
 
   .cardHeader {
     width: 100%;
@@ -19,10 +20,6 @@
   .nameContainer, .description {
     @include flexBox(column);
     min-height: 50px;
-
-    h2, p {
-      color: $whiteColor;
-    }
 
     p {
       font-size: calc(5px + 1vw);
