@@ -37,7 +37,7 @@ const SideBarContainer = ({
 SideBarContainer.propTypes = {
   isSidebarOpen: PropTypes.bool.isRequired,
   setIsSidebarOpen: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['sideMenu', 'sideSearch']).isRequired,
+  type: PropTypes.oneOf(['sideMenu', 'sideSearch', 'card']).isRequired,
   close: PropTypes.func,
   onClickPayload: PropTypes.func,
 };

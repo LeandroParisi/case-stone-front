@@ -22,15 +22,21 @@
     }
   }
 
-  .cardDescription {
-    max-width: 100%;
-    max-height: 50%;
-    display: inline-block;
+  .cardOptions {
+    @include flexBox(row, space-around);
+    width: 100%;
 
-    @include flexBox(column);
-
-    h3, p {
-      max-width: 100%;
+    .option {
+      .icon {
+        cursor: pointer;
+        font-size: $icon-small;
+        transition: .8;
+        
+        &:hover, &:active {
+          color: $mediumWineColor;
+          transition: .8;
+        }
+      }
     }
   }
 }
