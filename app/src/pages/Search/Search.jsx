@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useProtectRoute from '../../hooks/useProtectRoute';
 import Header from '../../components/Header/Header';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
+import getSearch from '../../services/getSearch';
 
 function Search() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,8 +12,12 @@ function Search() {
   const categoryPayload = { searchCategory, setSearchCategory };
   const inputPayload = { searchQuery, setSearchQuery };
 
-  const makeRequest = () => {
+  const makeRequest = async () => {
     const requestPayload = { searchQuery, searchCategory };
+
+    const response = await getSearch(requestPayload);
+
+    console.log(response);
   };
 
   return (

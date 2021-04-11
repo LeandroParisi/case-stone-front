@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './SearchSideBar.scss';
 
-export default function SearchSideBar() {
+export default function SearchSideBar({ onClick }) {
   return (
     <div className="searchBallonContainer">
-      <div className="searchBallon">
+      <div className="searchBallon" onClick={onClick} tabIndex={0} onKeyDown={onClick} role="button">
         <h1 className="searchText">
           Search!
         </h1>
@@ -15,7 +14,6 @@ export default function SearchSideBar() {
   );
 }
 
-// SearchSideBar.propTypes = {
-//   isSearchSideBarOpen: PropTypes.func.isRequired,
-//   setIsSearchSideBarOpen: PropTypes.func.isRequired,
-// };
+SearchSideBar.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
