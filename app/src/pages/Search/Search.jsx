@@ -11,6 +11,7 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchCategory, setSearchCategory] = useState('characters');
   const [searchResults, setSearchResults] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   const categoryPayload = { searchCategory, setSearchCategory };
   const inputPayload = { searchQuery, setSearchQuery };
@@ -18,16 +19,21 @@ function Search() {
   const makeRequest = async () => {
     const requestPayload = { searchQuery, searchCategory };
 
+    setIsFetching(true);
+
     const response = await getSearch(requestPayload);
 
     setSearchResults(response);
+
+    setIsFetching(false);
+
     setIsSidebarOpen(false);
   };
 
   return (
     <>
       { useProtectRoute() }
-      { useLoading('mrAmerica', true, 'fetch') }
+      { useLoading('mrAmerica', isFetching, 'fetch') }
       <Header
         openSearchSideBar={() => setIsSidebarOpen(true)}
         inputPayload={inputPayload}
