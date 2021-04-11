@@ -9,11 +9,15 @@
 
   .cardHeader {
     width: 100%;
-    @include flexBox(row, space-between);
+    @include flexBox(row, space-around);
 
     > img {
       width: 30%;
       border-radius: 10px;
+
+      @include screen(min-md) {
+        width: 15%;
+      }
     }
   }
 
@@ -27,7 +31,7 @@
     }
 
     .descriptionText {
-      font-size: calc(10px + 1vw);
+      font-size: calc(8px + 1.2vw);
       width: 80%;
       letter-spacing: 0.15em;
     }

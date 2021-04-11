@@ -18,8 +18,8 @@ function CardDetails({ asset, type }) {
   return (
     <section className={`${type}Details`} key={id}>
       <section className="cardHeader">
-        <ComicsDisplay list={comics} />
         <img src={xlarge} alt={`${name} card`} />
+        <ComicsDisplay list={comics} />
       </section>
       <div className="nameContainer">
         <h2>{ mainName }</h2>

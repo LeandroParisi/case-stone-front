@@ -6,7 +6,7 @@ function ComicsDisplay({ list }) {
   console.log(list);
   return (
     <div className="comicsDisplay">
-      Featured in:
+      <h4>Featured in:</h4>
       {list && list.length > 0 ? (
         <ul className="listContainer">
           {list.map((item) => <li key={item.comicId}>{item.name}</li>)}

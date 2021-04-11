@@ -8,7 +8,7 @@ import SearchSideBar from '../../components/SearchSideBar/SearchSideBar';
 import CardDetails from '../../components/CardDetails/CardDetails';
 
 const SideBarContainer = ({
-  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload, asset,
+  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload, asset, isFavorite, setIsFavorite,
 }) => {
   const statePayload = { isSidebarOpen, setIsSidebarOpen };
   const onClick = onClickPayload && onClickPayload;
@@ -16,7 +16,12 @@ const SideBarContainer = ({
     const sideBars = {
       sideMenu: <SideBar statePayload={statePayload} />,
       sideSearch: <SearchSideBar statePayload={statePayload} onClick={onClick} />,
-      card: <CardDetails asset={asset} type={type} />,
+      card: <CardDetails
+        asset={asset}
+        type={type}
+        isFavorite={isFavorite}
+        setIsFavorite={setIsFavorite}
+      />,
     };
     console.log(sideBars[type]);
     return sideBars[type];
@@ -49,12 +54,16 @@ SideBarContainer.propTypes = {
     name: PropTypes.string,
     thumbnails: PropTypes.shape(),
   }),
+  isFavorite: PropTypes.bool,
+  setIsFavorite: PropTypes.func,
 };
 
 SideBarContainer.defaultProps = {
   close: null,
   onClickPayload: null,
   asset: null,
+  isFavorite: null,
+  setIsFavorite: null,
 };
 
 export default SideBarContainer;

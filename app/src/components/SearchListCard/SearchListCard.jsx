@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import './SearchListCard.scss';
 import splitName from './utils';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
@@ -24,8 +25,6 @@ function SearchListCard({ asset, type }) {
 
   const detailsColor = openDetails ? '#F2D335' : '#0a1c20';
 
-  const likeColor = isFavorite ? '#F2D335' : '#0a1c20';
-
   return (
     <section className={`${type}Card`} key={id}>
       <img src={xlarge} alt={`${name} card`} />
@@ -34,10 +33,8 @@ function SearchListCard({ asset, type }) {
         <p>{ splittedName.join(' ') }</p>
       </div>
       <div className="cardOptions">
+        <FavoriteButton className="option" onClick={() => setIsFavorite(!isFavorite)} isFavorite={isFavorite} />
         <div className="option">
-          <FontAwesomeIcon icon={faHeart} className="icon heart" color={likeColor} />
-        </div>
-        <div className="option" onClick={() => setIsFavorite(!isFavorite)}>
           <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
         </div>
       </div>
@@ -47,6 +44,8 @@ function SearchListCard({ asset, type }) {
         isSidebarOpen={openDetails}
         setIsSidebarOpen={setOpenDetails}
         close={() => setOpenDetails(false)}
+        isFavorite={isFavorite}
+        setIsFavorite={setIsFavorite}
       />
     </section>
   );
