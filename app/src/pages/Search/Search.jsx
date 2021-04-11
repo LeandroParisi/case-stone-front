@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useProtectRoute from '../../hooks/useProtectRoute';
 import Header from '../../components/Header/Header';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
+import SearchListContainer from '../../containers/SearchListContainer/SearchListContainer';
 import getSearch from '../../services/getSearch';
 
 function Search() {
@@ -30,9 +31,6 @@ function Search() {
         inputPayload={inputPayload}
         categoryPayload={categoryPayload}
       />
-      <main>
-        Search
-      </main>
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
@@ -40,6 +38,7 @@ function Search() {
         close={() => setIsSidebarOpen(false)}
         onClickPayload={makeRequest}
       />
+      <SearchListContainer searchResults={searchResults} />
     </>
   );
 }
