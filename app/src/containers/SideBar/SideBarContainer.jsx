@@ -20,7 +20,7 @@ const SideBarContainer = ({
         asset={asset}
         type={type}
         isFavorite={isFavorite}
-        setIsFavorite={setIsFavorite}
+        onClick={() => setIsFavorite(!isFavorite)}
       />,
     };
     console.log(sideBars[type]);

@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import './CardDetails.scss';
 import splitName from '../SearchListCard/utils';
 import ComicsDisplay from '../ComicsDisplay/ComicsDisplay';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
-function CardDetails({ asset, type }) {
+function CardDetails({
+  asset, type, isFavorite, onClick,
+}) {
   const {
     comics, id, name, thumbnails: { xlarge }, description,
   } = asset;
@@ -18,7 +21,10 @@ function CardDetails({ asset, type }) {
   return (
     <section className={`${type}Details`} key={id}>
       <section className="cardHeader">
-        <img src={xlarge} alt={`${name} card`} />
+        <div className="imageContainer">
+          <img src={xlarge} alt={`${name} card`} />
+          <FavoriteButton className="detailsFavButton" onClick={onClick} isFavorite={isFavorite} />
+        </div>
         <ComicsDisplay list={comics} />
       </section>
       <div className="nameContainer">
@@ -41,6 +47,8 @@ CardDetails.propTypes = {
     thumbnails: PropTypes.shape().isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default CardDetails;

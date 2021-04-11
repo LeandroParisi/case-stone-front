@@ -11,12 +11,25 @@
     width: 100%;
     @include flexBox(row, space-around);
 
-    > img {
+    .imageContainer {
       width: 30%;
-      border-radius: 10px;
+      position: relative;
 
       @include screen(min-md) {
         width: 15%;
+      }
+
+      > img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      > .detailsFavButton {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: $font-medium;
+        cursor: pointer;
       }
     }
   }
