@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
@@ -10,6 +11,7 @@ import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import useIsMount from '../../hooks/useIsMount';
 import { getToken } from '../../store/localStorage/provider';
+import postFavorite from '../../services/postFavorite';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
@@ -25,7 +27,12 @@ function SearchListCard({ asset, type }) {
   useEffect(() => {
     const dispatchFetch = async () => {
       const token = getToken();
-      console.log(token);
+      const body = { type };
+      const { message } = await postFavorite(body, id, { Authorization: token });
+      if (message) {
+        return toast.error(message);
+      }
+      return null;
     };
 
     if (!isMount && isFavorite) {
