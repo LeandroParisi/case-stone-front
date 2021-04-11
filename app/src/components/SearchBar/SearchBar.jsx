@@ -5,17 +5,32 @@ import { faBook, faUser } from '@fortawesome/free-solid-svg-icons';
 import Input from '../Input/Input';
 import './SearchBar.scss';
 
-function SearchBar({ categoryPayload }) {
-  const placeHolderText = `Search by ${'c'}`;
+function SearchBar({
+  categoryPayload: { searchCategory, setSearchCategory },
+  inputPayload: { searchQuery, setSearchQuery },
+}) {
+  const placeHolderText = `Search by ${searchCategory}`;
   return (
     <div className="searchContainer">
-      <Input className="searchInput" placeholder={placeHolderText} />
+      <Input className="searchInput" placeholder={placeHolderText} value={searchQuery} onChange={setSearchQuery} />
       <div className="searchTypeContainer">
-        <div className="searchIconContainer">
-          <FontAwesomeIcon icon={faBook} color="white" className="searchIcon book" />
+        <div
+          className="searchIconContainer"
+          onClick={() => setSearchCategory('characters')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => setSearchCategory('characters')}
+        >
+          <FontAwesomeIcon icon={faUser} color={searchCategory === 'characters' ? '#F2D335' : 'white'} className="searchIcon book" />
         </div>
-        <div className="searchIconContainer">
-          <FontAwesomeIcon icon={faUser} color="white" className="searchIcon user" />
+        <div
+          className="searchIconContainer"
+          onClick={() => setSearchCategory('comics')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => setSearchCategory('comics')}
+        >
+          <FontAwesomeIcon icon={faBook} color={searchCategory === 'comics' ? '#F2D335' : 'white'} className="searchIcon user" />
         </div>
       </div>
     </div>
@@ -23,7 +38,14 @@ function SearchBar({ categoryPayload }) {
 }
 
 SearchBar.propTypes = {
-  categoryPayload: PropTypes.shape({}).isRequired,
+  categoryPayload: PropTypes.shape({
+    searchCategory: PropTypes.oneOf('characters, comics').isRequired,
+    setSearchCategory: PropTypes.func.isRequired,
+  }).isRequired,
+  inputPayload: PropTypes.shape({
+    searchQuery: PropTypes.string.isRequired,
+    setSearchQuery: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default SearchBar;
