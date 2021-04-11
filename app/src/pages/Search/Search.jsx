@@ -10,7 +10,7 @@ function Search() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchCategory, setSearchCategory] = useState('characters');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
 
   const categoryPayload = { searchCategory, setSearchCategory };
@@ -22,8 +22,6 @@ function Search() {
     setIsFetching(true);
 
     const response = await getSearch(requestPayload);
-
-    console.log(response);
 
     setSearchResults(response);
 
@@ -48,7 +46,7 @@ function Search() {
         close={() => setIsSidebarOpen(false)}
         onClickPayload={makeRequest}
       />
-      { searchResults.length > 0 && <SearchListContainer searchResults={searchResults} /> }
+      { searchResults && <SearchListContainer searchResults={searchResults} /> }
       {/* search CTA */}
     </>
   );

@@ -1,0 +1,36 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.charactersCard, .comicsCard {
+  width: 25%;
+  height: 25%;
+  margin: 2%;
+  @include flexBox(column, space-between);
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .nameContainer {
+    @include flexBox(column);
+    min-height: 50px;
+
+    p {
+      font-size: calc(5px + 1vw);
+      text-align: center;
+    }
+  }
+
+  .cardDescription {
+    max-width: 100%;
+    max-height: 50%;
+    display: inline-block;
+
+    @include flexBox(column);
+
+    h3, p {
+      max-width: 100%;
+    }
+  }
+}

@@ -13,6 +13,18 @@ h1 {
   font-size: $font-xlarge;
 }
 
+h2 {
+  font-size: $font-large;
+}
+
+h3 {
+  font-size: $font-medium;
+}
+
+p {
+  $font-size: $font-small;
+}
+
 .textContainer { 
   max-width: 45ch;
   text-align: center;

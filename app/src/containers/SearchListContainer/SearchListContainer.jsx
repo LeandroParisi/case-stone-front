@@ -2,29 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { capitalize } from '../../services/utils';
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
+import './SearchListContainer.scss';
 
-function SearchListContainer({ searchResult }) {
-  const { type, result } = searchResult;
+function SearchListContainer({ searchResults }) {
+  const { type, result } = searchResults;
   const title = capitalize(type);
+
+  console.log(result);
   return (
     <main className="searchListContainer">
       <h1>
         {`Your ${title}:`}
       </h1>
-      { result.map((asset) => <SearchListCard asset={asset} />)}
+      <section className="searchListCards">
+        { result.map((asset) => <SearchListCard asset={asset} type={type} />)}
+      </section>
     </main>
   );
 }
 
 SearchListContainer.propTypes = {
-  searchResult: PropTypes.shape({
+  searchResults: PropTypes.shape({
     result: PropTypes.arrayOf(PropTypes.any),
     type: PropTypes.string,
   }),
 };
 
 SearchListContainer.defaultProps = {
-  searchResult: {
+  searchResults: {
     results: [],
     type: '',
   },
