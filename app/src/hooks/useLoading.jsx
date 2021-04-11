@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import Loader from '../assets/Loaders/Loader';
 import { getImage } from '../assets/Loaders/loaderDictionary';
 
