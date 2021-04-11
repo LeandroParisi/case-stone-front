@@ -8,5 +8,7 @@ $sideBarColor: $whiteColor;
 header {
   @include flexBox(row, flex-start);
   height: $headerHeigth;
+  position: fixed;
+  width: 100vw;
   background-color: $headerBackground;
 }

@@ -1,0 +1,32 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.cardDetails {
+  width: 100%;
+  height: 100%;
+  @include flexBox(column);
+
+  > img {
+    width: 30%;
+    border-radius: 10px;
+  }
+
+  .nameContainer, .description {
+    @include flexBox(column);
+    min-height: 50px;
+
+    h2, p {
+      color: $whiteColor;
+    }
+
+    p {
+      font-size: calc(5px + 1vw);
+      text-align: center;
+    }
+
+    .descriptionText {
+      font-size: calc(10px + 1vw);
+      width: 80%;
+    }
+  }
+}

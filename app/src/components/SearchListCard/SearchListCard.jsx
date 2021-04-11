@@ -28,22 +28,26 @@ function SearchListCard({ asset, type }) {
 
   return (
     <section className={`${type}Card`} key={id}>
-      <div className="imageSpinner">
-        <img src={xlarge} alt={`${name} card`} />
-      </div>
+      <img src={xlarge} alt={`${name} card`} />
       <div className="nameContainer">
         <h2>{ mainName }</h2>
         <p>{ splittedName.join(' ') }</p>
       </div>
       <div className="cardOptions">
-        <div className="option" onClick={() => setOpenDetails(!openDetails)}>
+        <div className="option">
           <FontAwesomeIcon icon={faHeart} className="icon heart" color={likeColor} />
         </div>
         <div className="option" onClick={() => setIsFavorite(!isFavorite)}>
-          <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} />
+          <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
         </div>
       </div>
-      <SideBarContainer type="card" isSidebarOpen={openDetails} setIsSidebarOpen={setOpenDetails} close={() => setOpenDetails(false)} />
+      <SideBarContainer
+        asset={asset}
+        type="card"
+        isSidebarOpen={openDetails}
+        setIsSidebarOpen={setOpenDetails}
+        close={() => setOpenDetails(false)}
+      />
     </section>
   );
 }

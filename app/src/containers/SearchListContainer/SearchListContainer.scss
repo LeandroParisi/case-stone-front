@@ -4,7 +4,7 @@
 
 .searchListContainer {
   @include flexBox(column);
-  padding-top: 15px;
+  padding-top: calc(15px + #{$headerHeigth});
 }
 
 

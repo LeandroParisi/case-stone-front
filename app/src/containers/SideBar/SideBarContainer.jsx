@@ -5,9 +5,10 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SideBar from '../../components/Sidebar/Sidebar';
 import './SideBarContainer.scss';
 import SearchSideBar from '../../components/SearchSideBar/SearchSideBar';
+import CardDetails from '../../components/CardDetails/CardDetails';
 
 const SideBarContainer = ({
-  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload,
+  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload, asset,
 }) => {
   const statePayload = { isSidebarOpen, setIsSidebarOpen };
   const onClick = onClickPayload && onClickPayload;
@@ -15,8 +16,9 @@ const SideBarContainer = ({
     const sideBars = {
       sideMenu: <SideBar statePayload={statePayload} />,
       sideSearch: <SearchSideBar statePayload={statePayload} onClick={onClick} />,
+      card: <CardDetails asset={asset} type={type} />,
     };
-
+    console.log(sideBars[type]);
     return sideBars[type];
   };
 
@@ -40,11 +42,19 @@ SideBarContainer.propTypes = {
   type: PropTypes.oneOf(['sideMenu', 'sideSearch', 'card']).isRequired,
   close: PropTypes.func,
   onClickPayload: PropTypes.func,
+  asset: PropTypes.shape({
+    comics: PropTypes.shape(),
+    description: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    thumbnails: PropTypes.shape(),
+  }),
 };
 
 SideBarContainer.defaultProps = {
   close: null,
   onClickPayload: null,
+  asset: null,
 };
 
 export default SideBarContainer;
