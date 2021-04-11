@@ -1,4 +1,5 @@
 @import '../../components/Header/Header.scss';
+@import '../../assets/scss/animations.scss';
 
 aside {
   position: fixed;
@@ -8,6 +9,20 @@ aside {
   transition: 1s ease;
   border-top: 2px solid $whiteColor;
   background-color: $headerBackground;
+
+  .closeIconContainer {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+
+    &:hover {
+      animation: bounceLeft 1.2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-out;
+    }
+  }
 }
 
 .opened {

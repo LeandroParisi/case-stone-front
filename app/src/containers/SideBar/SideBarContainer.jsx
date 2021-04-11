@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SideBar from '../../components/Sidebar/Sidebar';
 import './SideBarContainer.scss';
 import SearchSideBar from '../../components/SearchSideBar/SearchSideBar';
@@ -24,8 +24,8 @@ const SideBarContainer = ({
   return (
     <aside className={menuStatus}>
       {close && (
-        <div className="closeIconContainer">
-          <FontAwesomeIcon icon={faTimes} color="white" size="2x" />
+        <div className="closeIconContainer" onClick={close} role="button" tabIndex={0} onKeyDown={close}>
+          <FontAwesomeIcon icon={faArrowLeft} color="white" size="2x" />
         </div>
       )}
       { renderSideBar() }

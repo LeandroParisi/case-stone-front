@@ -5,3 +5,9 @@
   75% {margin-left: -7px;}
   100% {margin-left: 0;}
 }
+
+@keyframes bounceLeft {
+  0% {margin-left: 0;}
+  50% {margin-left: -7px;}
+  100% {margin-left: 0;}
+}
