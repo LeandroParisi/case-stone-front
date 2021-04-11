@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import HamburgerMenu from '../Hamburger-Menu/HamburgerMenu';
 import SideBar from '../Sidebar/Sidebar';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.scss';
 
-function Header() {
+function Header({ categoryPayload }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -14,9 +15,13 @@ function Header() {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
-      <SearchBar />
+      <SearchBar categoryPayload={categoryPayload} />
     </header>
   );
 }
+
+Header.propTypes = {
+  categoryPayload: PropTypes.shape({}).isRequired,
+};
 
 export default Header;

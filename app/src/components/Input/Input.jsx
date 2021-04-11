@@ -16,8 +16,14 @@ const Input = ({
   className,
 }) => {
   const checkValidity = () => (isValid !== null && !isValid);
+  const containerClassName = className && `${className}Container`;
   return (
-    <div className="primaryInput">
+    <div
+      className={classNames(
+        'primaryInput',
+        containerClassName,
+      )}
+    >
       {title && (
         <label htmlFor={title}>
           {title}

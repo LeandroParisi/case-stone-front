@@ -1,3 +1,69 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+@import '../Header/Header.scss';
+
 .searchContainer {
   margin: auto;
+  min-width: 85%;
+  @include flexBox(row);
+
+  .searchInputContainer {
+    width: 50%;
+
+    .searchInput {
+      background-color: $whiteColor;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px $transparentWhiteColor;
+      color: $headerBackground;
+      transition: 0.5s;
+      border: none;
+      width: 100%;
+  
+      &:hover {
+        text-shadow: 1px 1px 4px rgba($headerBackground, .35);
+      }
+  
+    
+      &:hover, &:focus {
+        color: $headerBackground;
+        box-shadow: 3px 3px 5px $transparentWhiteColor;
+        border: none;
+        transition: 0.5s;
+      }
+    
+      &::placeholder {
+        color: $darkGrayColor;
+        font-size: $font-small;
+        text-align: center;
+      }
+    
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover, 
+      &:-webkit-autofill:focus, 
+      &:-webkit-autofill:active
+      {
+      -webkit-box-shadow: 0 0 0 30px $darkGrayColor inset !important;
+      box-shadow: 0 0 0 30px $darkGrayColor inset !important;
+      text-align: center;
+      }
+    
+      &.invalid {
+        color: $yellowColor;
+        border-bottom: 1px solid $yellowColor;
+        animation: shakky .2s;
+        animation-iteration-count: 4;
+      }
+  }
+  }
+
+  .searchTypeContainer {
+    @include flexBox(row, space-between);
+    width: 25%;
+    margin-left: 10%;
+
+    .searchIcon {
+      font-size: $icon-medium;
+      cursor: pointer;
+    }
+  }
 }
