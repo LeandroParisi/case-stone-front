@@ -14,6 +14,7 @@ const Input = ({
   errorMessage,
   resetValidity,
   className,
+  onFocus,
 }) => {
   const checkValidity = () => (isValid !== null && !isValid);
   const containerClassName = className && `${className}Container`;
@@ -37,6 +38,7 @@ const Input = ({
         value={value}
         readOnly={isReadOnly}
         placeholder={placeholder}
+        onFocus={onFocus && onFocus()}
         className={classNames(
           className,
           { invalid: checkValidity() },
@@ -53,6 +55,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   isReadOnly: PropTypes.bool,
@@ -64,6 +67,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   onChange: null,
+  onFocus: null,
   onBlur: null,
   isReadOnly: false,
   title: null,

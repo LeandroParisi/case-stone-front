@@ -9,7 +9,7 @@ function Search() {
   return (
     <>
       { useProtectRoute() }
-      <Header />
+      <Header openSearchSideBar={() => setIsSidebarOpen(true)} />
       <main>
         Search
       </main>

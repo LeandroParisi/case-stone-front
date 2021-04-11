@@ -8,11 +8,12 @@ import './SearchBar.scss';
 function SearchBar({
   categoryPayload: { searchCategory, setSearchCategory },
   inputPayload: { searchQuery, setSearchQuery },
+  others: { openSearchSideBar },
 }) {
   const placeHolderText = `Search by ${searchCategory}`;
   return (
     <div className="searchContainer">
-      <Input className="searchInput" placeholder={placeHolderText} value={searchQuery} onChange={setSearchQuery} />
+      <Input className="searchInput" placeholder={placeHolderText} value={searchQuery} onChange={setSearchQuery} onFocus={() => openSearchSideBar} />
       <div className="searchTypeContainer">
         <div
           className="searchIconContainer"
@@ -46,6 +47,7 @@ SearchBar.propTypes = {
     searchQuery: PropTypes.string.isRequired,
     setSearchQuery: PropTypes.func.isRequired,
   }).isRequired,
+  others: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
