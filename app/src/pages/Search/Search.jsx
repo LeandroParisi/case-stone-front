@@ -1,11 +1,17 @@
 // import React, { useEffect, useState } from 'react';
 import React from 'react';
+import useProtectRoute from '../../hooks/useProtectRoute';
+import Header from '../../components/Header/Header';
 
 function Search() {
   return (
-    <main>
-      Search
-    </main>
+    <>
+      { useProtectRoute() }
+      <Header />
+      <main>
+        Search
+      </main>
+    </>
   );
 }
 

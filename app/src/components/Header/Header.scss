@@ -1,0 +1,8 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+header {
+  @include flexBox(row);
+  height: 15vh;
+  background-color: $darkerWineColor;
+}

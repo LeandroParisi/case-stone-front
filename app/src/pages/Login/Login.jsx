@@ -26,8 +26,8 @@ function Login() {
     if (!token) {
       return toast.error(message);
     }
-    history.push('/search');
-    return saveToken(token);
+    saveToken(token);
+    return history.push('/search');
   };
 
   return (
