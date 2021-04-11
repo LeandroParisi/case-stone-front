@@ -18,6 +18,7 @@ const loaderImages = {
   mrAmerica: {
     src: mrAmerica,
     timer: 5000,
+    bgColor: 'darkYellow',
   },
   main1: {
     src: main1,

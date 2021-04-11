@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 import SearchListContainer from '../../containers/SearchListContainer/SearchListContainer';
 import getSearch from '../../services/getSearch';
+import useLoading from '../../hooks/useLoading';
 
 function Search() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -26,6 +27,7 @@ function Search() {
   return (
     <>
       { useProtectRoute() }
+      { useLoading('mrAmerica', true, 'fetch') }
       <Header
         openSearchSideBar={() => setIsSidebarOpen(true)}
         inputPayload={inputPayload}
