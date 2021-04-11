@@ -32,7 +32,6 @@ export default function Sidebar({ statePayload: { setIsSidebarOpen } }) {
         .map(({ name, redirect }, index) => (
           <>
             <li
-              key={name}
               onClick={() => {
                 setIsSidebarOpen(false);
                 history.push(`${redirect}`);
@@ -56,7 +55,7 @@ export default function Sidebar({ statePayload: { setIsSidebarOpen } }) {
 
 Sidebar.propTypes = {
   statePayload: PropTypes.shape({
-    isSidebarOpen: PropTypes.func.isRequired,
+    isSidebarOpen: PropTypes.bool.isRequired,
     setIsSidebarOpen: PropTypes.func.isRequired,
   }).isRequired,
 };

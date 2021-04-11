@@ -52,7 +52,7 @@ const Input = ({
 
 Input.propTypes = {
   title: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
@@ -60,8 +60,8 @@ Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   isReadOnly: PropTypes.bool,
   isValid: PropTypes.bool,
-  errorMessage: PropTypes.string.isRequired,
-  resetValidity: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
+  resetValidity: PropTypes.func,
   className: PropTypes.string,
 };
 
@@ -73,6 +73,9 @@ Input.defaultProps = {
   title: null,
   isValid: null,
   className: '',
+  type: 'text',
+  errorMessage: null,
+  resetValidity: null,
 };
 
 export default Input;

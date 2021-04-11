@@ -39,7 +39,7 @@ function SearchBar({
 
 SearchBar.propTypes = {
   categoryPayload: PropTypes.shape({
-    searchCategory: PropTypes.oneOf('characters, comics').isRequired,
+    searchCategory: PropTypes.oneOf(['characters', 'comics']).isRequired,
     setSearchCategory: PropTypes.func.isRequired,
   }).isRequired,
   others: PropTypes.shape({

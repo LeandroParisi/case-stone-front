@@ -9,6 +9,10 @@ function Search() {
 
   const inputPayload = { searchQuery, setSearchQuery };
 
+  const makeRequest = () => {
+    console.log('request');
+  };
+
   return (
     <>
       { useProtectRoute() }
@@ -21,6 +25,7 @@ function Search() {
         setIsSidebarOpen={setIsSidebarOpen}
         type="sideSearch"
         close={() => setIsSidebarOpen(false)}
+        onClickPayload={makeRequest}
       />
     </>
   );

@@ -7,13 +7,14 @@ import './SideBarContainer.scss';
 import SearchSideBar from '../../components/SearchSideBar/SearchSideBar';
 
 const SideBarContainer = ({
-  type, isSidebarOpen, setIsSidebarOpen, close,
+  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload,
 }) => {
   const statePayload = { isSidebarOpen, setIsSidebarOpen };
+  const onClick = onClickPayload && onClickPayload;
   const renderSideBar = () => {
     const sideBars = {
       sideMenu: <SideBar statePayload={statePayload} />,
-      sideSearch: <SearchSideBar statePayload={statePayload} />,
+      sideSearch: <SearchSideBar statePayload={statePayload} onClick={onClick} />,
     };
 
     return sideBars[type];
@@ -34,14 +35,16 @@ const SideBarContainer = ({
 };
 
 SideBarContainer.propTypes = {
-  isSidebarOpen: PropTypes.func.isRequired,
+  isSidebarOpen: PropTypes.bool.isRequired,
   setIsSidebarOpen: PropTypes.func.isRequired,
-  type: PropTypes.oneOf('sideMenu', 'sideSearch').isRequired,
+  type: PropTypes.oneOf(['sideMenu', 'sideSearch']).isRequired,
   close: PropTypes.func,
+  onClickPayload: PropTypes.func,
 };
 
 SideBarContainer.defaultProps = {
   close: null,
+  onClickPayload: null,
 };
 
 export default SideBarContainer;
