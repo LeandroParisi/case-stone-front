@@ -15,10 +15,10 @@ const SideBarContainer = ({ type, isSidebarOpen, setIsSidebarOpen }) => {
     return sideBars[type];
   };
 
-  const clicked = !isSidebarOpen && 'move-menu';
+  const menuStatus = isSidebarOpen ? 'opened ' : 'closed';
 
-  return isSidebarOpen && (
-    <aside className={clicked}>
+  return (
+    <aside className={menuStatus}>
       { renderSideBar() }
     </aside>
   );

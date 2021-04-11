@@ -1,12 +1,5 @@
 @import '../../components/Header/Header.scss';
 
-
-.move-menu {
-  transform: translateX(-100vw);
-  transition: 1s ease;
-  z-index: 2;
-}
-
 aside {
   position: fixed;
   top: $headerHeigth;
@@ -15,4 +8,16 @@ aside {
   transition: 1s ease;
   border-top: 2px solid $whiteColor;
   background-color: $headerBackground;
+}
+
+.opened {
+  left: 0vw;
+  transition: 1s ease;
+  z-index: 2;
+}
+
+.closed {
+  left: -100vw;
+  transition: 1s ease;
+  z-index: 2;
 }

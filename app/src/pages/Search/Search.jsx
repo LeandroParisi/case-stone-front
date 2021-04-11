@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 
 function Search() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
