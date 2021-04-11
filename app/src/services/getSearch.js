@@ -3,7 +3,7 @@ import to from './to';
 
 const getSearch = async (requestPayload) => {
   const { searchQuery, searchCategory } = requestPayload;
-  const getUrl = `${url}${endpoints[searchCategory]}?query=${searchQuery}`;
+  const getUrl = `${url}${endpoints[searchCategory]}/search?query=${searchQuery}`;
 
   const response = to('GET', getUrl);
 
