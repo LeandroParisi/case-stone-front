@@ -1,3 +1,6 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -6,6 +9,8 @@
  * @link https://github.com/jonsuh/hamburgers
  */
  .hamburger {
+  @extend .resetButtonStyles;
+  align-self: flex-start;
   padding: 15px 15px;
   display: inline-block;
   cursor: pointer;
@@ -18,6 +23,7 @@
   background-color: transparent;
   border: 0;
   margin: 0;
+  box-shadow: none;
   overflow: visible; }
   .hamburger:hover {
     opacity: 0.9; }

@@ -105,3 +105,22 @@
   align-items: $align;
   flex-wrap: $wrap;
 }
+
+.resetButtonStyles {
+  background-color: transparent;
+  padding: 0;
+  color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+  letter-spacing: 0.15em;
+
+
+  &:hover, &:active {
+    background-color: transparent;
+    box-shadow: none;
+    color: transparent;
+    transition: none;
+  }
+}

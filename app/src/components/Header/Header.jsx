@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import HamburgerMenu from '../Hamburger-Menu/HamburgerMenu';
 import './Header.scss';
 
 function Header() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <header>
-      Header
+      <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
     </header>
   );
 }

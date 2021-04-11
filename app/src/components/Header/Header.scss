@@ -1,8 +1,10 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 
+$headerHeigth: 10vh;
+
 header {
-  @include flexBox(row);
-  height: 15vh;
+  @include flexBox(row, flex-start);
+  height: $headerHeigth;
   background-color: $darkerWineColor;
 }
