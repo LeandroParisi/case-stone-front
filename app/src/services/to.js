@@ -7,7 +7,7 @@ const axios = require('axios');
  * @param {string} url Complet URL for the request: server + endpoint
  * @param {object} body Request body
  * @param {object} headers Request headers
- * @returns Array [response, error], if there's an error on the request it will return an error on index 1 of the array
+ * @returns Object { ...responsePayload } Any relevant information returned by the API. It will always include a key message (even on errors)
  */
 const to = async (method, url, body, headers) => {
   const options = {
@@ -17,13 +17,12 @@ const to = async (method, url, body, headers) => {
     data: body,
   };
 
-  const response = await axios(options);
-
-  if (response.status === 200) {
+  try {
+    const response = await axios(options);
     return response.data;
+  } catch (error) {
+    return { message: error.response.data.message };
   }
-
-  return response;
 };
 
 export default to;
