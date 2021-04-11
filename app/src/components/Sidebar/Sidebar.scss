@@ -1,0 +1,36 @@
+@import '../Header/Header.scss';
+
+nav {
+  position: fixed;
+  top: $headerHeigth;
+  width: 100vw;
+  height: calc(100vh - #{$headerHeigth});
+  transition: 1s ease;
+
+  ul {
+    @include flexBox(column, space-around);
+    height: 100%;
+    background-color: $headerColor;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      background-image: url('../../assets/images/ballons/defaultBallon.png');
+      background-position: center;
+      padding: 50px;
+    }
+
+    hr {
+      width: 30%;
+      border: none;
+      border-bottom: 1px solid $darkerWineColor;
+      outline: none;
+    }
+  }
+}
+
+.move-menu {
+  transform: translateX(-100vw);
+  transition: 1s ease;
+  z-index: 2;
+}

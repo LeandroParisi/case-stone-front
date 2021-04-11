@@ -2,9 +2,10 @@
 @import '../../assets/scss/variables.scss';
 
 $headerHeigth: 10vh;
+$headerColor: $yellowColor;
 
 header {
   @include flexBox(row, flex-start);
   height: $headerHeigth;
-  background-color: $darkerWineColor;
+  background-color: $headerColor;
 }
