@@ -14,4 +14,5 @@ aside {
   height: calc(100vh - #{$headerHeigth});
   transition: 1s ease;
   border-top: 2px solid $whiteColor;
+  background-color: $headerBackground;
 }

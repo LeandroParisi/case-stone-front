@@ -1,40 +1,45 @@
 @import '../Header/Header.scss';
+@import '../../assets/scss/mixins.scss';
 
-nav {
-  position: fixed;
-  top: $headerHeigth;
-  width: 100vw;
-  height: calc(100vh - #{$headerHeigth});
-  transition: 1s ease;
-  border-top: 2px solid $whiteColor;
+$containerSize: 100%;
+$ballonReduction: 20%;
 
-  ul {
-    @include flexBox(column, space-around);
-    height: 100%;
-    background-color: $headerBackground;
-    color: $sideBarColor;
+$searchBallonSize: $containerSize - $ballonReduction;
 
+div.searchBallonContainer {
+  width: $containerSize;
+  height: $containerSize;
+  @include flexBox(column);
+  
+  .searchBallon {
+    position: relative;
+    width: $searchBallonSize;
+    height: $searchBallonSize;
+    cursor: pointer;
+    background-image: url('../../assets/images/ballons/powBallon3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: calc(#{$searchBallonSize} * 1.5);
 
-    li {
-      list-style: none;
-      cursor: pointer;
-      background-image: url('../../assets/images/ballons/defaultBallon.png');
-      background-position: center;
-      padding: 50px;
-      font-size: $font-medium;
+    @include screen(sm) {
+      background-size: calc(#{$searchBallonSize} * 1.35);
     }
 
-    hr {
-      width: 30%;
-      border: none;
-      border-bottom: 1px solid $sideBarColor;
-      outline: none;
+    @include screen(md) {
+      background-size: calc(#{$searchBallonSize} * 1.10);
+    }
+
+    @include screen(min-lg) {
+      background-size: calc(#{$searchBallonSize} * 0.7);
+    }
+
+    .searchText {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      font-size: $font-xxxlarge;
     }
   }
-}
 
-.move-menu {
-  transform: translateX(-100vw);
-  transition: 1s ease;
-  z-index: 2;
+
 }

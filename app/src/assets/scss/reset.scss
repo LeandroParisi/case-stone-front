@@ -1,8 +1,16 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+
 * {
   font-family: 'Bebas Neue';
   letter-spacing: 0.1em;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: $font-xlarge;
 }
 
 .textContainer { 

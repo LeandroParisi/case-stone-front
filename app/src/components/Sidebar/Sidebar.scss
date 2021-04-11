@@ -1,19 +1,10 @@
 @import '../Header/Header.scss';
 
-// nav {
-//   position: fixed;
-//   top: $headerHeigth;
-//   width: 100vw;
-//   height: calc(100vh - #{$headerHeigth});
-//   transition: 1s ease;
-//   border-top: 2px solid $whiteColor;
 
 ul {
   @include flexBox(column, space-around);
   height: 100%;
-  background-color: $headerBackground;
   color: $sideBarColor;
-
 
   li {
     list-style: none;
@@ -29,7 +20,6 @@ ul {
     outline: none;
   }
 }
-// }
 
 .move-menu {
   transform: translateX(-100vw);
