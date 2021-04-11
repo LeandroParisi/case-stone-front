@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { capitalize } from '../../services/utils';
+import SearchListCard from '../../components/SearchListCard/SearchListCard';
 
 function SearchListContainer({ searchResult }) {
-  const { type } = searchResult;
+  const { type, result } = searchResult;
   const title = capitalize(type);
   return (
-    <main>
+    <main className="searchListContainer">
       <h1>
         {`Your ${title}:`}
       </h1>
+      { result.map((asset) => <SearchListCard asset={asset} />)}
     </main>
   );
 }

@@ -23,6 +23,8 @@ function Search() {
 
     const response = await getSearch(requestPayload);
 
+    console.log(response);
+
     setSearchResults(response);
 
     setIsFetching(false);
@@ -46,7 +48,8 @@ function Search() {
         close={() => setIsSidebarOpen(false)}
         onClickPayload={makeRequest}
       />
-      <SearchListContainer searchResults={searchResults} />
+      { searchResults.length > 0 && <SearchListContainer searchResults={searchResults} /> }
+      {/* search CTA */}
     </>
   );
 }

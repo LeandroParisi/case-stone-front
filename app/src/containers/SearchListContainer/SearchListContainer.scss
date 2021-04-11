@@ -1,0 +1,6 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.searchListContainer {
+  @include flexBox(column);
+}
