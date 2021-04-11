@@ -8,6 +8,7 @@ function Search() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchCategory, setSearchCategory] = useState('characters');
+  const [searchResults, setSearchResults] = useState([]);
 
   const categoryPayload = { searchCategory, setSearchCategory };
   const inputPayload = { searchQuery, setSearchQuery };
@@ -17,7 +18,8 @@ function Search() {
 
     const response = await getSearch(requestPayload);
 
-    console.log(response);
+    setSearchResults(response);
+    setIsSidebarOpen(false);
   };
 
   return (
