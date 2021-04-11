@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
@@ -8,16 +8,30 @@ import './SearchListCard.scss';
 import splitName from './utils';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import useIsMount from '../../hooks/useIsMount';
+import { getToken } from '../../store/localStorage/provider';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const isMount = useIsMount();
 
   const {
     comics, id, name, thumbnails: { xlarge },
   } = asset;
 
   console.log(comics);
+
+  useEffect(() => {
+    const dispatchFetch = async () => {
+      const token = getToken();
+      console.log(token);
+    };
+
+    if (!isMount && isFavorite) {
+      dispatchFetch();
+    }
+  }, [isFavorite]);
 
   const splittedName = splitName(name);
 

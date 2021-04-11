@@ -23,7 +23,6 @@ const SideBarContainer = ({
         onClick={() => setIsFavorite(!isFavorite)}
       />,
     };
-    console.log(sideBars[type]);
     return sideBars[type];
   };
 

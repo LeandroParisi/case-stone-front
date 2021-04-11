@@ -8,7 +8,6 @@ function SearchListContainer({ searchResults }) {
   const { type, result } = searchResults;
   const title = capitalize(type);
 
-  console.log(result);
   return (
     <main className="searchListContainer">
       <h1>

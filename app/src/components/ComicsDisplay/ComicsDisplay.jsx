@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './ComicsDisplay.scss';
 
 function ComicsDisplay({ list }) {
-  console.log(list);
   return (
     <div className="comicsDisplay">
       <h4>Featured in:</h4>
