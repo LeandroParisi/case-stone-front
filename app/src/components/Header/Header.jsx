@@ -8,15 +8,13 @@ function Header({ ...props }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [searchCategory, setSearchCategory] = useState('characters');
-  const [searchQuery, setSearchQuery] = useState('');
 
   const categoryPayload = { searchCategory, setSearchCategory };
-  const inputPayload = { searchQuery, setSearchQuery };
 
   return (
     <header>
       <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <SearchBar categoryPayload={categoryPayload} inputPayload={inputPayload} others={props} />
+      <SearchBar categoryPayload={categoryPayload} others={props} />
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}

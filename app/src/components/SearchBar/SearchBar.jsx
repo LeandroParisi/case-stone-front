@@ -7,8 +7,7 @@ import './SearchBar.scss';
 
 function SearchBar({
   categoryPayload: { searchCategory, setSearchCategory },
-  inputPayload: { searchQuery, setSearchQuery },
-  others: { openSearchSideBar },
+  others: { openSearchSideBar, inputPayload: { searchQuery, setSearchQuery } },
 }) {
   const placeHolderText = `Search by ${searchCategory}`;
   return (
@@ -43,11 +42,13 @@ SearchBar.propTypes = {
     searchCategory: PropTypes.oneOf('characters, comics').isRequired,
     setSearchCategory: PropTypes.func.isRequired,
   }).isRequired,
-  inputPayload: PropTypes.shape({
-    searchQuery: PropTypes.string.isRequired,
-    setSearchQuery: PropTypes.func.isRequired,
+  others: PropTypes.shape({
+    inputPayload: PropTypes.shape({
+      searchQuery: PropTypes.string.isRequired,
+      setSearchQuery: PropTypes.func.isRequired,
+    }).isRequired,
+    openSearchSideBar: PropTypes.func.isRequired,
   }).isRequired,
-  others: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
