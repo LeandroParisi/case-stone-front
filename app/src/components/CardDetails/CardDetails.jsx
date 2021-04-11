@@ -16,7 +16,9 @@ function CardDetails({ asset, type }) {
 
   return (
     <section className={`${type}Details`} key={id}>
-      <img src={xlarge} alt={`${name} card`} />
+      <section className="cardHeader">
+        <img src={xlarge} alt={`${name} card`} />
+      </section>
       <div className="nameContainer">
         <h2>{ mainName }</h2>
         <p>{ splittedName.join(' ') }</p>

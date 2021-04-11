@@ -6,9 +6,14 @@
   height: 100%;
   @include flexBox(column);
 
-  > img {
-    width: 30%;
-    border-radius: 10px;
+  .cardHeader {
+    width: 100%;
+    @include flexBox(row, space-between);
+
+    > img {
+      width: 30%;
+      border-radius: 10px;
+    }
   }
 
   .nameContainer, .description {
@@ -27,6 +32,7 @@
     .descriptionText {
       font-size: calc(10px + 1vw);
       width: 80%;
+      letter-spacing: 0.15em;
     }
   }
 }
