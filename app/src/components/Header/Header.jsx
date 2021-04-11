@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HamburgerMenu from '../Hamburger-Menu/HamburgerMenu';
 import SideBar from '../Sidebar/Sidebar';
+import SearchBar from '../SearchBar/SearchBar';
 import './Header.scss';
 
 function Header() {
@@ -13,6 +14,7 @@ function Header() {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
+      <SearchBar />
     </header>
   );
 }

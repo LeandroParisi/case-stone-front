@@ -10,7 +10,9 @@ nav {
   ul {
     @include flexBox(column, space-around);
     height: 100%;
-    background-color: $headerColor;
+    background-color: $headerBackground;
+    color: $sideBarColor;
+
 
     li {
       list-style: none;
@@ -18,12 +20,13 @@ nav {
       background-image: url('../../assets/images/ballons/defaultBallon.png');
       background-position: center;
       padding: 50px;
+      font-size: $font-medium;
     }
 
     hr {
       width: 30%;
       border: none;
-      border-bottom: 1px solid $darkerWineColor;
+      border-bottom: 1px solid $sideBarColor;
       outline: none;
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Input = ({
   title,
@@ -12,27 +13,34 @@ const Input = ({
   isValid,
   errorMessage,
   resetValidity,
-}) => (
-  <div className="primaryInput">
-    {title && (
-      <label htmlFor={title}>
-        {title}
-      </label>
-    )}
-    <input
-      id={title}
-      type={type}
-      onChange={onChange && ((e) => onChange(e.target.value))}
-      onBlur={onBlur && ((e) => onBlur(e.target.value))}
-      value={value}
-      readOnly={isReadOnly}
-      placeholder={placeholder}
-      className={isValid !== null && !isValid && 'invalid'}
-      onClick={() => resetValidity(true)}
-    />
-    {isValid !== null && !isValid && <div className="errorMessage textContainer">{ errorMessage }</div>}
-  </div>
-);
+  className,
+}) => {
+  const checkValidity = () => (isValid !== null && !isValid);
+  return (
+    <div className="primaryInput">
+      {title && (
+        <label htmlFor={title}>
+          {title}
+        </label>
+      )}
+      <input
+        id={title}
+        type={type}
+        onChange={onChange && ((e) => onChange(e.target.value))}
+        onBlur={onBlur && ((e) => onBlur(e.target.value))}
+        value={value}
+        readOnly={isReadOnly}
+        placeholder={placeholder}
+        className={classNames(
+          className,
+          { invalid: checkValidity() },
+        )}
+        onClick={resetValidity && (() => resetValidity(true))}
+      />
+      {checkValidity() && <div className="errorMessage textContainer">{ errorMessage }</div>}
+    </div>
+  );
+};
 
 Input.propTypes = {
   title: PropTypes.string,
@@ -42,9 +50,10 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   isReadOnly: PropTypes.bool,
-  isValid: PropTypes.bool.isRequired,
+  isValid: PropTypes.bool,
   errorMessage: PropTypes.string.isRequired,
   resetValidity: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -52,6 +61,8 @@ Input.defaultProps = {
   onBlur: null,
   isReadOnly: false,
   title: null,
+  isValid: null,
+  className: '',
 };
 
 export default Input;
