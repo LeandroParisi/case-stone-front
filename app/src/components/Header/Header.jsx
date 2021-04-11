@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import HamburgerMenu from '../Hamburger-Menu/HamburgerMenu';
-import SideBar from '../Sidebar/Sidebar';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.scss';
+import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 
 function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const [searchCategory, setSearchCategory] = useState('characters');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -15,11 +16,12 @@ function Header() {
   return (
     <header>
       <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <SideBar
+      <SearchBar categoryPayload={categoryPayload} inputPayload={inputPayload} />
+      <SideBarContainer
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
+        type="sideMenu"
       />
-      <SearchBar categoryPayload={categoryPayload} inputPayload={inputPayload} />
     </header>
   );
 }

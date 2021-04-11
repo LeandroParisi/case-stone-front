@@ -1,0 +1,17 @@
+@import '../../components/Header/Header.scss';
+
+
+.move-menu {
+  transform: translateX(-100vw);
+  transition: 1s ease;
+  z-index: 2;
+}
+
+aside {
+  position: fixed;
+  top: $headerHeigth;
+  width: 100vw;
+  height: calc(100vh - #{$headerHeigth});
+  transition: 1s ease;
+  border-top: 2px solid $whiteColor;
+}
