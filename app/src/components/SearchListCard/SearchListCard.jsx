@@ -15,7 +15,7 @@ import postFavorite from '../../services/postFavorite';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(asset.isFavorited);
   const isMount = useIsMount();
 
   const {
@@ -25,7 +25,7 @@ function SearchListCard({ asset, type }) {
   console.log(comics);
 
   useEffect(() => {
-    const dispatchFetch = async () => {
+    const dispatchAddFavorite = async () => {
       const token = getToken();
       const body = { type };
       const { message } = await postFavorite(body, id, { Authorization: token });
@@ -36,7 +36,7 @@ function SearchListCard({ asset, type }) {
     };
 
     if (!isMount && isFavorite) {
-      dispatchFetch();
+      dispatchAddFavorite();
     }
   }, [isFavorite]);
 
@@ -79,6 +79,7 @@ SearchListCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     thumbnails: PropTypes.shape().isRequired,
+    isFavorited: PropTypes.bool.isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
 };
