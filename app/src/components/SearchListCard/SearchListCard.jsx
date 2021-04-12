@@ -21,10 +21,8 @@ function SearchListCard({ asset, type }) {
   const isMount = useIsMount();
 
   const {
-    comics, id, name, thumbnails: { xlarge },
+    id, name, thumbnails: { xlarge },
   } = asset;
-
-  console.log(comics);
 
   useEffect(() => {
     const dispatchAddFavorite = async () => {
@@ -78,6 +76,7 @@ function SearchListCard({ asset, type }) {
       <SideBarContainer
         asset={asset}
         type="card"
+        cardType={type}
         isSidebarOpen={openDetails}
         setIsSidebarOpen={setOpenDetails}
         close={() => setOpenDetails(false)}
@@ -90,7 +89,6 @@ function SearchListCard({ asset, type }) {
 
 SearchListCard.propTypes = {
   asset: PropTypes.shape({
-    comics: PropTypes.shape().isRequired,
     description: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

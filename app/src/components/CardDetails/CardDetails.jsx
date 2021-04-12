@@ -7,17 +7,15 @@ import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
 function CardDetails({
-  asset, type, isFavorite, onClick,
+  asset, type, isFavorite, onClick, cardType,
 }) {
   const {
-    comics, id, name, thumbnails: { xlarge }, description,
+    features, id, name, thumbnails: { xlarge }, description,
   } = asset;
 
   const splittedName = splitName(name);
 
   const mainName = splittedName.shift();
-
-  console.log(comics);
 
   return (
     <section className={`${type}Details`} key={id}>
@@ -26,7 +24,7 @@ function CardDetails({
           <img src={xlarge || unknownHero} alt={`${name} card`} />
           <FavoriteButton className="detailsFavButton" onClick={onClick} isFavorite={isFavorite} />
         </div>
-        <FeaturesDisplay list={comics} />
+        <FeaturesDisplay list={features} cardType={cardType} />
       </section>
       <div className="nameContainer">
         <h2>{ mainName }</h2>
@@ -41,13 +39,14 @@ function CardDetails({
 
 CardDetails.propTypes = {
   asset: PropTypes.shape({
-    comics: PropTypes.shape().isRequired,
+    features: PropTypes.shape().isRequired,
     description: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     thumbnails: PropTypes.shape().isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
+  cardType: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };

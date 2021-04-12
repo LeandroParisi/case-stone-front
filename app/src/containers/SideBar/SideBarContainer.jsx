@@ -8,7 +8,15 @@ import SearchSideBar from '../../components/SearchSideBar/SearchSideBar';
 import CardDetails from '../../components/CardDetails/CardDetails';
 
 const SideBarContainer = ({
-  type, isSidebarOpen, setIsSidebarOpen, close, onClickPayload, asset, isFavorite, setIsFavorite,
+  type,
+  isSidebarOpen,
+  setIsSidebarOpen,
+  close,
+  onClickPayload,
+  asset,
+  isFavorite,
+  setIsFavorite,
+  cardType,
 }) => {
   const statePayload = { isSidebarOpen, setIsSidebarOpen };
   const onClick = onClickPayload && onClickPayload;
@@ -21,6 +29,7 @@ const SideBarContainer = ({
         type={type}
         isFavorite={isFavorite}
         onClick={() => setIsFavorite(!isFavorite)}
+        cardType={cardType}
       />,
     };
     return sideBars[type];
@@ -55,6 +64,7 @@ SideBarContainer.propTypes = {
   }),
   isFavorite: PropTypes.bool,
   setIsFavorite: PropTypes.func,
+  cardType: PropTypes.string,
 };
 
 SideBarContainer.defaultProps = {
@@ -63,6 +73,7 @@ SideBarContainer.defaultProps = {
   asset: null,
   isFavorite: null,
   setIsFavorite: null,
+  cardType: '',
 };
 
 export default SideBarContainer;
