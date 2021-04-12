@@ -12,7 +12,6 @@ import getFeature from '../../services/getFeature';
 function FeaturesDisplay({ list, cardType }) {
   const [isFetching, setIsFetching] = useState(false);
   const [searchResults, setSearchResults] = useState(null);
-  console.log(searchResults);
 
   const cardTypeOptions = ['characters', 'comics'];
 
@@ -46,7 +45,7 @@ function FeaturesDisplay({ list, cardType }) {
             {list.map((item) => (
               <div>
                 <li
-                  key={item.featureId}
+                  key={item.featureId + searchResults} // retirar
                   tabIndex={0}
                   role="button"
                   onClick={() => fetchFeature(item.featureId)}

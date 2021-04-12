@@ -7,8 +7,6 @@ const getSearch = async (requestPayload) => {
   const parsedQuery = parseSearchQuery(searchQuery);
   const getUrl = `${url}${endpoints[searchCategory]}/search?query=${parsedQuery}`;
 
-  console.log(getUrl);
-
   const response = to('GET', getUrl, null, { authorization: token });
 
   return response;
