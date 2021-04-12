@@ -25,6 +25,13 @@ function SearchListCard({ asset, type }) {
   } = asset;
 
   useEffect(() => {
+    setIsFavorite(asset.isFavorited);
+    return () => {
+      setIsFavorite(false);
+    };
+  }, [asset]);
+
+  useEffect(() => {
     const dispatchAddFavorite = async () => {
       const token = getToken();
       const body = { type };

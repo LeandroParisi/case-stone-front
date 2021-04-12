@@ -57,7 +57,6 @@ function Search() {
         onClickPayload={makeRequest}
       />
       { searchResults && <SearchListContainer searchResults={searchResults} /> }
-      {/* search CTA */}
     </>
   );
 }
