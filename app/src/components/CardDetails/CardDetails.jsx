@@ -4,6 +4,7 @@ import './CardDetails.scss';
 import splitName from '../SearchListCard/utils';
 import ComicsDisplay from '../ComicsDisplay/ComicsDisplay';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
 function CardDetails({
   asset, type, isFavorite, onClick,
@@ -22,7 +23,7 @@ function CardDetails({
     <section className={`${type}Details`} key={id}>
       <section className="cardHeader">
         <div className="imageContainer">
-          <img src={xlarge} alt={`${name} card`} />
+          <img src={xlarge || unknownHero} alt={`${name} card`} />
           <FavoriteButton className="detailsFavButton" onClick={onClick} isFavorite={isFavorite} />
         </div>
         <ComicsDisplay list={comics} />

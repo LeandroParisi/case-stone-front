@@ -13,6 +13,7 @@ import useIsMount from '../../hooks/useIsMount';
 import { getToken } from '../../store/localStorage/provider';
 import postFavorite from '../../services/postFavorite';
 import deleteFavorite from '../../services/deleteFavorite';
+import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
@@ -20,10 +21,12 @@ function SearchListCard({ asset, type }) {
   const isMount = useIsMount();
 
   const {
-    comics, id, name, thumbnails: { xlarge },
+    comics, id, name, thumbnails: { xlarge }, thumbnails,
   } = asset;
 
   console.log(comics);
+
+  console.log(thumbnails);
 
   useEffect(() => {
     const dispatchAddFavorite = async () => {
@@ -63,7 +66,7 @@ function SearchListCard({ asset, type }) {
 
   return (
     <section className={`${type}Card`} key={id}>
-      <img src={xlarge} alt={`${name} card`} />
+      <img src={xlarge || unknownHero} alt={`${name} card`} />
       <div className="nameContainer">
         <h2>{ mainName }</h2>
         <p>{ splittedName.join(' ') }</p>
