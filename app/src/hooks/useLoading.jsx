@@ -6,7 +6,7 @@ const messageDictionaries = {
   fetch: 'We are retrieving your data, hold tight!',
 };
 
-const useLoading = (image, show, type = null) => {
+const useLoading = (show, image = 'mrAmerica', type = 'fetch') => {
   const message = type && messageDictionaries[type];
 
   const { src, bgColor } = getImage(image);

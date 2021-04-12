@@ -43,7 +43,7 @@ function Search() {
   return (
     <>
       { useProtectRoute() }
-      { useLoading('mrAmerica', isFetching, 'fetch') }
+      { useLoading(isFetching) }
       <Header
         openSearchSideBar={() => setIsSidebarOpen(true)}
         inputPayload={inputPayload}
