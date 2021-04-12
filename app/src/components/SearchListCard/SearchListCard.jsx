@@ -12,7 +12,7 @@ import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import useIsMount from '../../hooks/useIsMount';
 import { getToken } from '../../store/localStorage/provider';
 import postFavorite from '../../services/postFavorite';
-// import deleteFavorite from '../../services/deleteFavorite';
+import deleteFavorite from '../../services/deleteFavorite';
 
 function SearchListCard({ asset, type }) {
   const [openDetails, setOpenDetails] = useState(false);
@@ -36,23 +36,23 @@ function SearchListCard({ asset, type }) {
       return null;
     };
 
-    // const dispatchRemoveFavorite = async () => {
-    //   const token = getToken();
-    //   const body = { type };
-    //   const { message } = await deleteFavorite(body, id, { Authorization: token });
-    //   if (message) {
-    //     return toast.error(message);
-    //   }
-    //   return null;
-    // };
+    const dispatchRemoveFavorite = async () => {
+      const token = getToken();
+      const body = { type };
+      const { message } = await deleteFavorite(body, id, { Authorization: token });
+      if (message) {
+        return toast.error(message);
+      }
+      return null;
+    };
 
     if (!isMount && isFavorite) {
       dispatchAddFavorite();
     }
 
-    // if (!isMount && isFavorite) {
-    //   dispatchRemoveFavorite();
-    // }
+    if (!isMount && !isFavorite) {
+      dispatchRemoveFavorite();
+    }
   }, [isFavorite]);
 
   const splittedName = splitName(name);
