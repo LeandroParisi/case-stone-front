@@ -2,9 +2,9 @@ import url, { endpoints } from './config';
 import to from './to';
 
 const postFavorite = async (body, id, headers) => {
-  const loginUrl = `${url}${endpoints.characters}/${id}`;
+  const postFavoriteUrl = `${url}${endpoints.characters}/${id}`;
 
-  const response = await to('POST', loginUrl, body, headers);
+  const response = await to('POST', postFavoriteUrl, body, headers);
 
   return response;
 };
