@@ -1,0 +1,14 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+$headerHeigth: 10vh;
+$headerBackground: $darkColor;
+$sideBarColor: $whiteColor;
+
+header {
+  @include flexBox(row, flex-start);
+  height: $headerHeigth;
+  position: fixed;
+  width: 100vw;
+  background-color: $headerBackground;
+}

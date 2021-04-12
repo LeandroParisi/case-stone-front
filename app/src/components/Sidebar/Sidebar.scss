@@ -1,0 +1,28 @@
+@import '../Header/Header.scss';
+
+
+ul {
+  @include flexBox(column, space-around);
+  height: 100%;
+  color: $sideBarColor;
+
+  li {
+    list-style: none;
+    cursor: pointer;
+    padding: 50px;
+    font-size: $font-medium;
+  }
+
+  hr {
+    width: 30%;
+    border: none;
+    border-bottom: 1px solid $sideBarColor;
+    outline: none;
+  }
+}
+
+.move-menu {
+  transform: translateX(-100vw);
+  transition: 1s ease;
+  z-index: 2;
+}

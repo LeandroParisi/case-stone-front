@@ -1,0 +1,24 @@
+@import '../scss/mixins.scss';
+@import '../scss/variables.scss';
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  position: absolute;
+  background-color: $redColor;
+  @include flexBox(column, space-around);
+
+  img {
+    max-width: 100%;
+  }
+
+  &.darkYellow {
+    background-color: #f7ad39;
+  }
+
+  .loaderMessage {
+    font-size: $font-xxxlarge;
+    color: $darkColor;
+  }
+}

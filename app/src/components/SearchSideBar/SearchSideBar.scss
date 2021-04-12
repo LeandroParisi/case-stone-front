@@ -1,0 +1,45 @@
+@import '../Header/Header.scss';
+@import '../../assets/scss/mixins.scss';
+
+$containerSize: 100%;
+$ballonReduction: 20%;
+
+$searchBallonSize: $containerSize - $ballonReduction;
+
+div.searchBallonContainer {
+  width: $containerSize;
+  height: $containerSize;
+  @include flexBox(column);
+  
+  .searchBallon {
+    position: relative;
+    width: $searchBallonSize;
+    height: $searchBallonSize;
+    cursor: pointer;
+    background-image: url('../../assets/images/ballons/powBallon3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: calc(#{$searchBallonSize} * 1.5);
+
+    @include screen(sm) {
+      background-size: calc(#{$searchBallonSize} * 1.35);
+    }
+
+    @include screen(md) {
+      background-size: calc(#{$searchBallonSize} * 1.10);
+    }
+
+    @include screen(min-lg) {
+      background-size: calc(#{$searchBallonSize} * 0.7);
+    }
+
+    .searchText {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      font-size: $font-xxxlarge;
+    }
+  }
+
+
+}

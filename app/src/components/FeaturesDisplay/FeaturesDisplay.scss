@@ -1,0 +1,39 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.comicsDisplay {
+  width: 50%;
+  @include flexBox(column);
+
+  > h4 {
+    margin-bottom: 12px;
+  }
+
+  > .listContainer {
+    width: 100%;
+    @include flexBox(row, space-between, center, wrap);
+
+    > div {
+      width: 45%;
+      > li {
+        padding: 0;
+        font-size: $font-xxsmall;
+        width: 100%;
+        text-align: center;
+        margin: 2px 1px;
+
+        &:hover {
+          color: $transparentWhiteColor;
+        }
+      }
+        
+      @include screen(min-md) {
+        width: 25%;
+      }
+    }
+  }
+
+  @include screen(min-md) {
+    width: 75%;
+  }
+}
