@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ComicsDisplay.scss';
+import './FeaturesDisplay.scss';
 
-function ComicsDisplay({ list }) {
+function FeaturesDisplay({ list }) {
   return (
     <div className="comicsDisplay">
       <h4>Featured in:</h4>
@@ -15,8 +15,8 @@ function ComicsDisplay({ list }) {
   );
 }
 
-ComicsDisplay.propTypes = {
+FeaturesDisplay.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
-export default ComicsDisplay;
+export default FeaturesDisplay;

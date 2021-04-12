@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CardDetails.scss';
 import splitName from '../SearchListCard/utils';
-import ComicsDisplay from '../ComicsDisplay/ComicsDisplay';
+import FeaturesDisplay from '../FeaturesDisplay/FeaturesDisplay';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
@@ -26,7 +26,7 @@ function CardDetails({
           <img src={xlarge || unknownHero} alt={`${name} card`} />
           <FavoriteButton className="detailsFavButton" onClick={onClick} isFavorite={isFavorite} />
         </div>
-        <ComicsDisplay list={comics} />
+        <FeaturesDisplay list={comics} />
       </section>
       <div className="nameContainer">
         <h2>{ mainName }</h2>

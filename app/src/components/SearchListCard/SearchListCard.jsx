@@ -21,12 +21,10 @@ function SearchListCard({ asset, type }) {
   const isMount = useIsMount();
 
   const {
-    comics, id, name, thumbnails: { xlarge }, thumbnails,
+    comics, id, name, thumbnails: { xlarge },
   } = asset;
 
   console.log(comics);
-
-  console.log(thumbnails);
 
   useEffect(() => {
     const dispatchAddFavorite = async () => {
