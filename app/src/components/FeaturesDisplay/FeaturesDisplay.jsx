@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable import/no-cycle */
 import React, { useState } from 'react';
@@ -39,7 +40,7 @@ function FeaturesDisplay({ list, cardType }) {
       { useLoading(isFetching) }
       <div className="comicsDisplay">
 
-        <h4>Featured in:</h4>
+        <h4>{ cardType === 'characters' ? 'Featured in:' : 'Features:'}</h4>
         {list && list.length > 0 ? (
           <ul className="listContainer">
             {list.map((item) => (
@@ -56,7 +57,7 @@ function FeaturesDisplay({ list, cardType }) {
               </div>
             ))}
           </ul>
-        ) : 'Not featured'}
+        ) : cardType === 'characters' ? 'Not featured' : 'no one'}
       </div>
 
     </>
