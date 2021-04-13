@@ -15,6 +15,11 @@
 .primaryInput {
   @include flexBox(column);
 
+  > label {
+    color: $whiteColor;
+    font-size: $font-medium;
+  }
+
   .errorMessage {
     background-color: $yellowColor;
     color: $darkerWineColor;
