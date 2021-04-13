@@ -17,12 +17,14 @@ export default function FeatureDetails({ asset, close }) {
       <div className="overlay" />
       <div className="cardPopup">
         <img src={xlarge || unknownHero} alt={`${name} card`} />
-        <div className="nameContainer">
-          <h2>{ mainName }</h2>
-          <p>{ splittedName.join(' ') }</p>
-        </div>
-        <div className="description">
-          <p className="descriptionText">{ description }</p>
+        <div className="featureContainer">
+          <div className="nameContainer">
+            <h2>{ mainName }</h2>
+            <p>{ splittedName.join(' ') }</p>
+          </div>
+          <div className="featureDescription">
+            <p className="featureDescriptionText">{ description }</p>
+          </div>
         </div>
         <button className="closeButton" onClick={close} type="button">
           <FontAwesomeIcon icon={faTimes} />
