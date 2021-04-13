@@ -16,9 +16,7 @@ function Header({ isSearch, title, ...props }) {
       </h1>
       )}
       <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      {isSearch && (
-      <SearchBar payloads={props} />
-      )}
+      <SearchBar payloads={props} isSearch={isSearch} />
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
@@ -29,13 +27,13 @@ function Header({ isSearch, title, ...props }) {
 }
 
 Header.propTypes = {
-  isSearch: PropTypes.bool,
   title: PropTypes.string,
+  isSearch: PropTypes.bool,
 };
 
 Header.defaultProps = {
-  isSearch: false,
   title: '',
+  isSearch: false,
 };
 
 export default Header;
