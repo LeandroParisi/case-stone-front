@@ -1,11 +1,20 @@
 // import React, { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
+import Header from '../../components/Header/Header';
+import useLoading from '../../hooks/useLoading';
+import useProtectRoute from '../../hooks/useProtectRoute';
 
 function Favorites() {
+  const [isFetching, setIsFetching] = useState(false);
+
+  console.log(setIsFetching);
+
   return (
-    <main>
-      Favorites
-    </main>
+    <>
+      { useProtectRoute() }
+      { useLoading(isFetching) }
+      <Header />
+    </>
   );
 }
 

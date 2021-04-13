@@ -48,6 +48,7 @@ function Search() {
         openSearchSideBar={() => setIsSidebarOpen(true)}
         inputPayload={inputPayload}
         categoryPayload={categoryPayload}
+        isSearch
       />
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}

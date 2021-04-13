@@ -34,7 +34,7 @@ function SearchListCard({ asset, type }) {
   useEffect(() => {
     const dispatchAddFavorite = async () => {
       const token = getToken();
-      const body = { type };
+      const body = { type, asset };
       const { message } = await postFavorite(body, id, { Authorization: token });
       if (message) {
         return toast.error(message);
