@@ -7,14 +7,18 @@ import UserForm from '../../components/UserForm/UserForm';
 import useProtectRoute from '../../hooks/useProtectRoute';
 import editUser from '../../services/editUser';
 import './Profile.scss';
+import { getToken } from '../../store/localStorage/provider';
+import { saveToken } from '../../store/localStorage/actions';
 
 function Profile() {
   const { pathname } = useLocation();
   const history = useHistory();
 
   const handleButtonClick = async (payload) => {
-    const { status, message } = await editUser(payload);
+    const token = getToken();
+    const { status, message, token: newToken } = await editUser(payload, token);
     if (status === 'ok') {
+      saveToken(newToken);
       return toast.success(message);
     }
     return toast.error(message);

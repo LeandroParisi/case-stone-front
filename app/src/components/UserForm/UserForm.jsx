@@ -48,6 +48,9 @@ function UserForm({ onSubmit, page }) {
       textLabel: 'Change email',
       passwordLabel: 'Change password',
       auxiliaryButton: null,
+      getPayload: () => ({
+        email, password,
+      }),
     },
   };
 
