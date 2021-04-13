@@ -48,6 +48,7 @@ function Search() {
         openSearchSideBar={() => setIsSidebarOpen(true)}
         inputPayload={inputPayload}
         categoryPayload={categoryPayload}
+        isSearch
       />
       <SideBarContainer
         isSidebarOpen={isSidebarOpen}
@@ -56,8 +57,9 @@ function Search() {
         close={() => setIsSidebarOpen(false)}
         onClickPayload={makeRequest}
       />
-      { searchResults && <SearchListContainer searchResults={searchResults} /> }
-      {/* search CTA */}
+      { searchResults && (
+        <SearchListContainer searchResults={searchResults} />
+      )}
     </>
   );
 }

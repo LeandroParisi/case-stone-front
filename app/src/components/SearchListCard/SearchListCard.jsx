@@ -15,7 +15,7 @@ import postFavorite from '../../services/postFavorite';
 import deleteFavorite from '../../services/deleteFavorite';
 import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
-function SearchListCard({ asset, type }) {
+function SearchListCard({ asset, type, isFavoritePage }) {
   const [openDetails, setOpenDetails] = useState(false);
   const [isFavorite, setIsFavorite] = useState(asset.isFavorited);
   const isMount = useIsMount();
@@ -25,9 +25,16 @@ function SearchListCard({ asset, type }) {
   } = asset;
 
   useEffect(() => {
+    setIsFavorite(asset.isFavorited);
+    return () => {
+      setIsFavorite(false);
+    };
+  }, [asset]);
+
+  useEffect(() => {
     const dispatchAddFavorite = async () => {
       const token = getToken();
-      const body = { type };
+      const body = { type, asset };
       const { message } = await postFavorite(body, id, { Authorization: token });
       if (message) {
         return toast.error(message);
@@ -67,22 +74,27 @@ function SearchListCard({ asset, type }) {
         <h2>{ mainName }</h2>
         <p>{ splittedName.join(' ') }</p>
       </div>
-      <div className="cardOptions">
-        <FavoriteButton className="option" onClick={() => setIsFavorite(!isFavorite)} isFavorite={isFavorite} />
-        <div className="option">
-          <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
-        </div>
-      </div>
-      <SideBarContainer
-        asset={asset}
-        type="card"
-        cardType={type}
-        isSidebarOpen={openDetails}
-        setIsSidebarOpen={setOpenDetails}
-        close={() => setOpenDetails(false)}
-        isFavorite={isFavorite}
-        setIsFavorite={setIsFavorite}
-      />
+      {!isFavoritePage && (
+        <>
+          <div className="cardOptions">
+            <FavoriteButton className="option" onClick={() => setIsFavorite(!isFavorite)} isFavorite={isFavorite} />
+            <div className="option">
+              <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
+            </div>
+          </div>
+
+          <SideBarContainer
+            asset={asset}
+            type="card"
+            cardType={type}
+            isSidebarOpen={openDetails}
+            setIsSidebarOpen={setOpenDetails}
+            close={() => setOpenDetails(false)}
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
+          />
+        </>
+      )}
     </section>
   );
 }
@@ -96,6 +108,7 @@ SearchListCard.propTypes = {
     isFavorited: PropTypes.bool.isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
+  isFavoritePage: PropTypes.bool.isRequired,
 };
 
 export default SearchListCard;

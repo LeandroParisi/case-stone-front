@@ -2,8 +2,8 @@
 @import '../../assets/scss/variables.scss';
 
 .charactersCard, .comicsCard {
-  width: 25%;
-  height: 25%;
+  width: 33%;
+  height: 33%;
   margin: 2%;
   @include flexBox(column, space-between);
 
@@ -38,5 +38,15 @@
         }
       }
     }
+  }
+
+  @include screen(min-md) {
+    width: 25%;
+    height: 25%;
+  }
+
+  @include screen(xl) {
+    width: 18%;
+    height: 18%;
   }
 }

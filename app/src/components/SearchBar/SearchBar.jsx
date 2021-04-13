@@ -1,40 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faUser } from '@fortawesome/free-solid-svg-icons';
 import Input from '../Input/Input';
 import './SearchBar.scss';
+import HeadersIcons from '../HeaderIcons/HeadersIcons';
 
 function SearchBar({
   payloads: {
     openSearchSideBar,
-    inputPayload: { searchQuery, setSearchQuery },
+    inputPayload = {},
     categoryPayload: { searchCategory, setSearchCategory },
+    title = '',
   },
+  isSearch,
 }) {
   const placeHolderText = `Search by ${searchCategory}`;
+
+  const onClickCharacters = () => setSearchCategory('characters');
+  const onClickComics = () => setSearchCategory('comics');
+
   return (
     <div className="searchContainer">
-      <Input className="searchInput" placeholder={placeHolderText} value={searchQuery} onChange={setSearchQuery} onFocus={() => openSearchSideBar} />
+      {isSearch && <Input className="searchInput" placeholder={placeHolderText} value={inputPayload.searchQuery} onChange={inputPayload.setSearchQuery} onFocus={() => openSearchSideBar} />}
+      {title && <h1>{title}</h1>}
       <div className="searchTypeContainer">
-        <div
-          className="searchIconContainer"
-          onClick={() => setSearchCategory('characters')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={() => setSearchCategory('characters')}
-        >
-          <FontAwesomeIcon icon={faUser} color={searchCategory === 'characters' ? '#F2D335' : 'white'} className="searchIcon book" />
-        </div>
-        <div
-          className="searchIconContainer"
-          onClick={() => setSearchCategory('comics')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={() => setSearchCategory('comics')}
-        >
-          <FontAwesomeIcon icon={faBook} color={searchCategory === 'comics' ? '#F2D335' : 'white'} className="searchIcon user" />
-        </div>
+        <HeadersIcons
+          onClickCharacters={onClickCharacters}
+          onClickComics={onClickComics}
+          searchCategory={searchCategory}
+        />
       </div>
     </div>
   );
@@ -43,15 +36,17 @@ function SearchBar({
 SearchBar.propTypes = {
   payloads: PropTypes.shape({
     inputPayload: PropTypes.shape({
-      searchQuery: PropTypes.string.isRequired,
-      setSearchQuery: PropTypes.func.isRequired,
-    }).isRequired,
-    openSearchSideBar: PropTypes.func.isRequired,
+      searchQuery: PropTypes.string,
+      setSearchQuery: PropTypes.func,
+    }),
+    openSearchSideBar: PropTypes.func,
     categoryPayload: PropTypes.shape({
       searchCategory: PropTypes.oneOf(['characters', 'comics']).isRequired,
       setSearchCategory: PropTypes.func.isRequired,
     }).isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
+  isSearch: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;

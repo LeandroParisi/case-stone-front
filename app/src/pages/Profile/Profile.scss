@@ -1,0 +1,17 @@
+@import '../../components/Header/Header.scss';
+@import '../../assets/scss/animations.scss';
+
+
+.closeProfile {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+
+  &:hover {
+    animation: bounceLeft 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+  }
+}

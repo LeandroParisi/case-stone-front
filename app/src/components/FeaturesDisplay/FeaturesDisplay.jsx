@@ -8,10 +8,12 @@ import './FeaturesDisplay.scss';
 import useLoading from '../../hooks/useLoading';
 import { getToken } from '../../store/localStorage/provider';
 import getFeature from '../../services/getFeature';
+import FeatureDetails from '../FeatureDetails/FeatureDetails';
 
 function FeaturesDisplay({ list, cardType }) {
   const [isFetching, setIsFetching] = useState(false);
   const [searchResults, setSearchResults] = useState(null);
+  const [showFeature, setShowFeature] = useState(false);
 
   const cardTypeOptions = ['characters', 'comics'];
 
@@ -30,22 +32,27 @@ function FeaturesDisplay({ list, cardType }) {
 
     setSearchResults({ result, assetType });
     setIsFetching(false);
+    setShowFeature(true);
 
     return null;
   };
 
+  console.log(searchResults);
+
   return (
     <>
       { useLoading(isFetching) }
+      {showFeature && (
+        <FeatureDetails asset={searchResults.result} close={() => setShowFeature(false)} />
+      )}
       <div className="comicsDisplay">
-
         <h4>{ cardType === 'characters' ? 'Featured in:' : 'Features:'}</h4>
         {list && list.length > 0 ? (
           <ul className="listContainer">
             {list.map((item) => (
               <div>
                 <li
-                  key={item.featureId + searchResults} // retirar
+                  key={item.featureId} // retirar
                   tabIndex={0}
                   role="button"
                   onClick={() => fetchFeature(item.featureId)}
