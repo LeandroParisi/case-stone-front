@@ -13,6 +13,10 @@ function SearchBar({
   },
 }) {
   const placeHolderText = `Search by ${searchCategory}`;
+
+  const onClickCharacters = () => setSearchCategory('characters');
+  const onClickComics = () => setSearchCategory('comics');
+
   return (
     <div className="searchContainer">
       <Input className="searchInput" placeholder={placeHolderText} value={searchQuery} onChange={setSearchQuery} onFocus={() => openSearchSideBar} />

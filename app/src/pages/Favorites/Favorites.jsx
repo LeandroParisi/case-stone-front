@@ -6,6 +6,7 @@ import useProtectRoute from '../../hooks/useProtectRoute';
 
 function Favorites() {
   const [isFetching, setIsFetching] = useState(false);
+  // const [title, setTitle] = useState();
 
   console.log(setIsFetching);
 
