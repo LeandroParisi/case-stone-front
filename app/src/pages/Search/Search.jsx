@@ -57,7 +57,9 @@ function Search() {
         close={() => setIsSidebarOpen(false)}
         onClickPayload={makeRequest}
       />
-      { searchResults && <SearchListContainer searchResults={searchResults} /> }
+      { searchResults && (
+        <SearchListContainer searchResults={searchResults} />
+      )}
     </>
   );
 }
