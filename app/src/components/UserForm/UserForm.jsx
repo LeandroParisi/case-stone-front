@@ -42,7 +42,7 @@ function UserForm({ onSubmit, page }) {
       auxiliaryButton: null,
     },
     '/profile': {
-      buttonTitle: 'Register',
+      buttonTitle: 'Save',
       inputPlaceholder: 'Your email',
       passwordPlaceholder: 'Your password',
       textLabel: 'Change email',
@@ -69,7 +69,7 @@ function UserForm({ onSubmit, page }) {
     <>
       <main className="primaryPage loginPage">
         <div className="inputsContainer">
-          {page === '/register' && (
+          {page === ('/register' || '/profile') && (
             <>
               <Input
                 placeholder="First name"
