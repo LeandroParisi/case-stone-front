@@ -5,16 +5,11 @@ import SearchBar from '../SearchBar/SearchBar';
 import './Header.scss';
 import SideBarContainer from '../../containers/SideBar/SideBarContainer';
 
-function Header({ isSearch, title, ...props }) {
+function Header({ isSearch, ...props }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <header>
-      {title && (
-      <h1>
-        { title }
-      </h1>
-      )}
       <HamburgerMenu isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
       <SearchBar payloads={props} isSearch={isSearch} />
       <SideBarContainer

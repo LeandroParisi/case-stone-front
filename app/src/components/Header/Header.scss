@@ -11,4 +11,9 @@ header {
   position: fixed;
   width: 100vw;
   background-color: $headerBackground;
+
+  > h1 {
+    color: $whiteColor;
+    width: 50%;
+  }
 }

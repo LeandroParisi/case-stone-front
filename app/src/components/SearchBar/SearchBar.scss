@@ -7,6 +7,10 @@
   min-width: 85%;
   @include flexBox(row);
 
+  > h1 {
+    color: $whiteColor;
+  }
+
   .searchInputContainer {
     width: 50%;
 

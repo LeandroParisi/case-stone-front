@@ -8,7 +8,6 @@ import getFavorites from '../../services/getFavorites';
 function Favorites() {
   const [isFetching, setIsFetching] = useState(false);
   const [searchCategory, setSearchCategory] = useState('characters');
-  // const [title, setTitle] = useState();
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -17,9 +16,12 @@ function Favorites() {
     };
     setIsFetching(true);
     fetchFavorites();
+    setIsFetching(false);
   }, [searchCategory]);
 
   const categoryPayload = { searchCategory, setSearchCategory };
+
+  const title = `Your favorite ${searchCategory}`;
 
   console.log(setIsFetching);
 
@@ -27,7 +29,7 @@ function Favorites() {
     <>
       { useProtectRoute() }
       { useLoading(isFetching) }
-      <Header categoryPayload={categoryPayload} />
+      <Header categoryPayload={categoryPayload} title={title} />
     </>
   );
 }

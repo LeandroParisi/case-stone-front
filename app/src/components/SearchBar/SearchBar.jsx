@@ -9,6 +9,7 @@ function SearchBar({
     openSearchSideBar,
     inputPayload = {},
     categoryPayload: { searchCategory, setSearchCategory },
+    title = '',
   },
   isSearch,
 }) {
@@ -20,6 +21,7 @@ function SearchBar({
   return (
     <div className="searchContainer">
       {isSearch && <Input className="searchInput" placeholder={placeHolderText} value={inputPayload.searchQuery} onChange={inputPayload.setSearchQuery} onFocus={() => openSearchSideBar} />}
+      {title && <h1>{title}</h1>}
       <div className="searchTypeContainer">
         <HeadersIcons
           onClickCharacters={onClickCharacters}
@@ -42,6 +44,7 @@ SearchBar.propTypes = {
       searchCategory: PropTypes.oneOf(['characters', 'comics']).isRequired,
       setSearchCategory: PropTypes.func.isRequired,
     }).isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
   isSearch: PropTypes.bool.isRequired,
 };
