@@ -11,8 +11,6 @@ function Favorites() {
   const [searchCategory, setSearchCategory] = useState('characters');
   const [searchResults, setSearchResults] = useState(null);
 
-  console.log(searchResults);
-
   useEffect(() => {
     const fetchFavorites = async () => {
       const response = await getFavorites(searchCategory);

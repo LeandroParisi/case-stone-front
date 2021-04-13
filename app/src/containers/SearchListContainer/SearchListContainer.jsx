@@ -1,12 +1,16 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import PropTypes from 'prop-types';
 import { capitalize } from '../../services/utils';
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
 import './SearchListContainer.scss';
 
-function SearchListContainer({ searchResults, isFavoritePage }) {
+function SearchListContainer({ searchResults }) {
   const { type, result } = searchResults;
   const title = capitalize(type);
+  const { pathname } = useLocation();
+
+  const isFavoritePage = pathname === '/favorites';
 
   return (
     <main className="searchListContainer">
@@ -16,7 +20,9 @@ function SearchListContainer({ searchResults, isFavoritePage }) {
       </h1>
       )}
       <section className="searchListCards">
-        { result.map((asset) => <SearchListCard asset={asset} type={type} isFavoritePage />)}
+        { result.map((asset) => (
+          <SearchListCard asset={asset} type={type} isFavoritePage={isFavoritePage} />
+        ))}
       </section>
     </main>
   );
@@ -27,7 +33,6 @@ SearchListContainer.propTypes = {
     result: PropTypes.arrayOf(PropTypes.any),
     type: PropTypes.string,
   }),
-  isFavoritePage: PropTypes.bool.isRequired,
 };
 
 SearchListContainer.defaultProps = {

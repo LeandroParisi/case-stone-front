@@ -34,18 +34,19 @@ function FeaturesDisplay({ list, cardType }) {
     return null;
   };
 
+  console.log(searchResults);
+
   return (
     <>
       { useLoading(isFetching) }
       <div className="comicsDisplay">
-
         <h4>{ cardType === 'characters' ? 'Featured in:' : 'Features:'}</h4>
         {list && list.length > 0 ? (
           <ul className="listContainer">
             {list.map((item) => (
               <div>
                 <li
-                  key={item.featureId + searchResults} // retirar
+                  key={item.featureId} // retirar
                   tabIndex={0}
                   role="button"
                   onClick={() => fetchFeature(item.featureId)}

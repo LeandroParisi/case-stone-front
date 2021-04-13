@@ -15,12 +15,10 @@ import postFavorite from '../../services/postFavorite';
 import deleteFavorite from '../../services/deleteFavorite';
 import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
 
-function SearchListCard({ asset, type, isNotFavoritePage }) {
+function SearchListCard({ asset, type, isFavoritePage }) {
   const [openDetails, setOpenDetails] = useState(false);
   const [isFavorite, setIsFavorite] = useState(asset.isFavorited);
   const isMount = useIsMount();
-
-  console.log(isNotFavoritePage);
 
   const {
     id, name, thumbnails: { xlarge },
@@ -76,27 +74,27 @@ function SearchListCard({ asset, type, isNotFavoritePage }) {
         <h2>{ mainName }</h2>
         <p>{ splittedName.join(' ') }</p>
       </div>
-      {/* {!isFavoritePage && ( */}
-      <>
-        <div className="cardOptions">
-          <FavoriteButton className="option" onClick={() => setIsFavorite(!isFavorite)} isFavorite={isFavorite} />
-          <div className="option">
-            <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
+      {!isFavoritePage && (
+        <>
+          <div className="cardOptions">
+            <FavoriteButton className="option" onClick={() => setIsFavorite(!isFavorite)} isFavorite={isFavorite} />
+            <div className="option">
+              <FontAwesomeIcon icon={faInfo} className="icon info" color={detailsColor} onClick={() => setOpenDetails(!openDetails)} />
+            </div>
           </div>
-        </div>
 
-        <SideBarContainer
-          asset={asset}
-          type="card"
-          cardType={type}
-          isSidebarOpen={openDetails}
-          setIsSidebarOpen={setOpenDetails}
-          close={() => setOpenDetails(false)}
-          isFavorite={isFavorite}
-          setIsFavorite={setIsFavorite}
-        />
-      </>
-      {/* )} */}
+          <SideBarContainer
+            asset={asset}
+            type="card"
+            cardType={type}
+            isSidebarOpen={openDetails}
+            setIsSidebarOpen={setOpenDetails}
+            close={() => setOpenDetails(false)}
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
+          />
+        </>
+      )}
     </section>
   );
 }
@@ -110,11 +108,7 @@ SearchListCard.propTypes = {
     isFavorited: PropTypes.bool.isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
-  isNotFavoritePage: PropTypes.bool,
-};
-
-SearchListCard.defaultProps = {
-  isNotFavoritePage: false,
+  isFavoritePage: PropTypes.bool.isRequired,
 };
 
 export default SearchListCard;
