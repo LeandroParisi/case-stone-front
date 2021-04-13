@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import unknownHero from '../../assets/images/avatars/unknownHero.jpg';
+import splitName from '../SearchListCard/utils';
 import './FeatureDetails.scss';
 
-function FeatureDetails({ asset }) {
+export default function FeatureDetails({ asset, close }) {
   const { description, name, thumbnails: { xlarge } } = asset;
 
+  const splittedName = splitName(name);
+  const mainName = splittedName.shift();
+
   return (
-    <div className="overlay">
+    <>
+      <div className="overlay" />
       <div className="cardPopup">
-        <div className="popupContainer">
-          <img src={xlarge || unknownHero} alt={`${name} card`} />
-        </div>
+        <img src={xlarge || unknownHero} alt={`${name} card`} />
         <div className="nameContainer">
           <h2>{ mainName }</h2>
           <p>{ splittedName.join(' ') }</p>
@@ -18,9 +24,11 @@ function FeatureDetails({ asset }) {
         <div className="description">
           <p className="descriptionText">{ description }</p>
         </div>
-
+        <button className="closeButton" onClick={close} type="button">
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -30,4 +38,5 @@ FeatureDetails.propTypes = {
     name: PropTypes.string.isRequired,
     thumbnails: PropTypes.shape().isRequired,
   }).isRequired,
+  close: PropTypes.func.isRequired,
 };
