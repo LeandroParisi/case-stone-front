@@ -1,7 +1,7 @@
 <h1 align="center">Marvelous App - front:</h1>
 <h2 align="center">Made for Stone challenge 2021</h2>
 <p align="center"><a href="https://marvelousapp-front.herokuapp.com/">Link to production</a></p>
-Note that, since the application is built using Heroku free the first access may take a while both to open it (initializing front end instance) and loggin in / registering (initializing back end instance).
+Note that, since the application is built using Heroku free version the first access may take a while to open (initializing front end instance) and to loggin / register user (initializing back end instance).
 
 <hr />
 
@@ -41,7 +41,7 @@ Front end application to like and list marvel characters and comics. Uses: React
 
 ## Improvements to be done:
 
-1. Adjust feature details (pop up) on large screens
+1. Adjust feature details (slider) on large screens
 2. Use global store to manage popups and sliders so that they are synced (ex.: when you click on seach input it should close character / comic details slider)
 3. Make search slider top level component on screen (z-index)
 4. More information and features on favorites page (like description and some external links)
