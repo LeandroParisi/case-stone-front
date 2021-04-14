@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const url = process.env.BACKEND_SERVER || 'https://marvelousapp-front.herokuapp.com';
+const url = process.env.BACKEND_SERVER || 'https://marvelousapp-back.herokuapp.com';
 
 export const endpoints = {
   login: '/users/login',
