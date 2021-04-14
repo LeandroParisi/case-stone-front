@@ -41,7 +41,8 @@ Front end application to like and list marvel characters and comics. Uses: React
 
 ## Improvements to be done:
 
-1. Adjust feature details (slider) on large screens
-2. Use global store to manage popups and sliders so that they are synced (ex.: when you click on seach input it should close character / comic details slider)
-3. Make search slider top level component on screen (z-index)
-4. More information and features on favorites page (like description and some external links)
+- [ ] Adjust feature details (slider) on large screens
+- [ ] Use global store to manage popups and sliders so that they are synced (ex- [ ]: when you click on seach input it should close character / comic details slider)
+- [ ] Make search slider top level component on screen (z-index)
+- [ ] More information and features on favorites page (like description and some external links)
+- [ ] Implement 80% of test coverage
