@@ -11,7 +11,7 @@ Aplicação front end para buscar, exibir e favoritar personagens da Marvel buil
 <hr />
 
 ## Demonstration:
-<img src="https://raw.githubusercontent.com/leandroparisi/case-stone-front/main/demonstration/demonstration.webm" alt="App demonstration" width="1100px" >
+<img src="https://raw.githubusercontent.com/leandroparisi/case-stone-front/main/demonstration/demonstration.gif" alt="App demonstration" width="1100px" >
 
 <hr />
 
