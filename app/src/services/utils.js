@@ -8,7 +8,6 @@ function capitalize(string) {
 const parseSearchQuery = (query) => capitalize(query.toLowerCase());
 
 const dispatchUserAction = async (fetch, requestPayload, history) => {
-  console.log(fetch);
   const { token, message, user } = await fetch(requestPayload);
   if (!token) {
     return toast.error(message);

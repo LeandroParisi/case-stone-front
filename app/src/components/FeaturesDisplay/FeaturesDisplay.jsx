@@ -37,8 +37,6 @@ function FeaturesDisplay({ list, cardType }) {
     return null;
   };
 
-  console.log(searchResults);
-
   return (
     <>
       { useLoading(isFetching) }
