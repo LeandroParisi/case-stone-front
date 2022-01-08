@@ -9,7 +9,7 @@ Note that, since the application is built using Heroku free version the first ac
 Front end application to like and list marvel characters and comics. Uses: React, Redux, JavaScript, and SCSS.
 
 # ATENÇÃO:
-Caso não consigam acessar a página de register para criar usuário favor utilizar meu usuário e senha:
+There is a problem on Heroku trying to build the app which I wasn't able to solve so, instead of registering an account please use the following info to login:
 Email: leandro@gmail.com
 Senha: leandro123
 
