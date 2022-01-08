@@ -10,8 +10,10 @@ Front end application to like and list marvel characters and comics. Uses: React
 
 # ATENÇÃO:
 There is a problem on Heroku trying to build the app which I wasn't able to solve so, instead of registering an account please use the following info to login:
+<br/>
 Email: leandro@gmail.com
-Senha: leandro123
+<br/>
+Password: leandro123
 
 <hr />
 
